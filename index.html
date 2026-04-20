@@ -731,6 +731,15 @@
       flex-wrap: wrap;
     }
 
+    .example-mobile-note {
+      display: none;
+      margin-top: 14px;
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--muted-soft);
+      max-width: 42ch;
+    }
+
     .example-browser {
       padding: 16px;
       border: 1px solid rgba(35, 28, 22, 0.14);
@@ -1634,6 +1643,10 @@
         gap: 12px;
       }
 
+      .example-mobile-note {
+        display: block;
+      }
+
       .hero-actions > .action-stack,
       .hero-actions > .btn-secondary,
       .example-actions > *,
@@ -1919,11 +1932,23 @@
       }
 
       .hero-meta {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        align-items: start;
       }
 
       .hero-meta > div:last-child {
         grid-column: auto;
+      }
+
+      .hero-meta strong {
+        font-size: 24px;
+      }
+
+      .hero-meta span {
+        max-width: none;
+        font-size: 11px;
+        line-height: 1.45;
       }
 
       .hero-trust {
@@ -1963,6 +1988,19 @@
     @media (max-width: 420px) {
       .hero-title {
         font-size: 34px;
+      }
+
+      .hero-meta {
+        gap: 8px;
+      }
+
+      .hero-meta strong {
+        font-size: 22px;
+      }
+
+      .hero-meta span {
+        font-size: 10px;
+        letter-spacing: 0.06em;
       }
 
       .hero-side-item {
@@ -2308,6 +2346,7 @@
             <button type="button" class="btn-primary" data-open-marta-example>Atvērt pilno piemēru</button>
             <a href="#contact" class="btn-secondary">Vēlos līdzīgu pieeju</a>
           </div>
+          <p class="example-mobile-note">Lai pilnvērtīgi apskatītu piemēru, izmantojiet datoru vai, alternatīvi, sniedziet man ziņu, un es jums atsūtīšu pilno mājaslapu.</p>
         </div>
 
         <div class="example-browser">
