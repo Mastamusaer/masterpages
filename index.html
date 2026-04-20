@@ -117,6 +117,42 @@
 
     .nav-links a:hover { color: var(--accent-strong); }
 
+    .nav-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid rgba(41, 78, 70, 0.18);
+      background: rgba(255, 253, 249, 0.72);
+      color: var(--accent-strong);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    nav.is-open .nav-toggle span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    nav.is-open .nav-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    nav.is-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
     .nav-cta,
     .btn-primary,
     .contact-button {
@@ -262,35 +298,86 @@
     }
 
     .cta-microcopy {
-      display: block;
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 8px;
+      max-width: 100%;
       font-size: 13px;
       line-height: 1.45;
-      color: var(--muted-soft);
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .cta-microcopy::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin-top: 0.42em;
+      border-radius: 50%;
+      background: var(--accent);
+      flex: 0 0 auto;
     }
 
     .hero-trust {
-      display: inline-flex;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
       align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
-      padding: 14px 18px;
-      border: 1px solid rgba(41, 78, 70, 0.16);
-      background: rgba(230, 238, 235, 0.62);
+      gap: 16px;
+      width: min(100%, 42rem);
+      margin-bottom: 30px;
+      padding: 18px 20px;
+      border: 1px solid rgba(41, 78, 70, 0.18);
+      border-left: 4px solid var(--accent-strong);
+      background: linear-gradient(135deg, rgba(247, 249, 248, 0.98), rgba(232, 240, 236, 0.92));
+      box-shadow: 0 18px 34px rgba(35, 28, 22, 0.08);
+    }
+
+    .hero-trust-icon {
+      width: 52px;
+      height: 52px;
+      position: relative;
+      display: block;
+      border-radius: 50%;
+      border: 1px solid rgba(41, 78, 70, 0.2);
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .hero-trust-icon::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 14px;
+      height: 8px;
+      border-left: 2.5px solid currentColor;
+      border-bottom: 2.5px solid currentColor;
+      transform: translate(-44%, -58%) rotate(-45deg);
+      transform-origin: center;
+      box-sizing: border-box;
+    }
+
+    .hero-trust-copy {
+      display: grid;
+      gap: 6px;
     }
 
     .hero-trust strong {
-      font-size: 11px;
+      display: block;
+      font-size: 12px;
       font-weight: 800;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
-      white-space: nowrap;
     }
 
     .hero-trust span {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 40ch;
+      display: block;
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--text);
+      max-width: 42ch;
     }
 
     .hero-meta {
@@ -362,6 +449,35 @@
       font-size: 18px;
       line-height: 1.75;
       max-width: 34ch;
+    }
+
+    .hero-preview-card,
+    .hero-preview-actions {
+      width: 100%;
+      max-width: 430px;
+      margin-left: auto;
+    }
+
+    .hero-preview-card {
+      margin-top: 38px;
+    }
+
+    .hero-preview-services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .hero-preview-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 18px;
+    }
+
+    .hero-preview-actions > * {
+      flex: 0 0 auto;
     }
 
     .section,
@@ -1424,22 +1540,52 @@
 
       .footer-logo img { height: 42px; }
 
+      .nav-toggle {
+        display: inline-flex;
+        justify-self: end;
+      }
+
       .nav-links {
         grid-column: 1 / -1;
         width: 100%;
-        display: grid;
+        display: none;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px 18px;
+        gap: 10px 12px;
+      }
+
+      .nav-links li {
+        min-width: 0;
       }
 
       .nav-links a {
-        display: block;
-        padding-top: 4px;
+        display: flex;
+        align-items: center;
+        min-height: 48px;
+        padding: 12px 14px;
+        border: 1px solid rgba(41, 78, 70, 0.14);
+        background: rgba(255, 253, 249, 0.76);
       }
 
       .nav-cta {
-        justify-self: end;
-        padding: 12px 16px;
+        grid-column: 1 / -1;
+        display: none;
+        justify-self: stretch;
+        justify-content: center;
+        width: 100%;
+        padding: 14px 16px;
+        text-align: center;
+      }
+
+      nav.is-open {
+        box-shadow: 0 18px 34px rgba(35, 28, 22, 0.1);
+      }
+
+      nav.is-open .nav-links {
+        display: grid;
+      }
+
+      nav.is-open .nav-cta {
+        display: inline-flex;
       }
 
       .hero,
@@ -1448,6 +1594,11 @@
       .contact-inner,
       footer {
         width: calc(100% - 32px);
+      }
+
+      .hero {
+        gap: 28px;
+        padding: 56px 0 44px;
       }
 
       .hero-title,
@@ -1461,7 +1612,131 @@
         max-width: none;
       }
 
-      .hero-meta,
+      .hero-title {
+        font-size: clamp(38px, 10vw, 52px);
+        line-height: 1.02;
+        margin-bottom: 20px;
+      }
+
+      .hero-body {
+        font-size: 16px;
+        margin-bottom: 24px;
+      }
+
+      .hero-copy .eyebrow {
+        margin-bottom: 16px;
+      }
+
+      .hero-actions,
+      .example-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+
+      .hero-actions > .action-stack,
+      .hero-actions > .btn-secondary,
+      .example-actions > *,
+      .mid-cta-panel .action-stack,
+      .pricing-actions .action-stack,
+      .hero-preview-actions > *,
+      .contact-button {
+        width: 100%;
+      }
+
+      .action-stack > a,
+      .hero-actions > .btn-secondary,
+      .example-actions > a,
+      .example-actions > button,
+      .mid-cta-panel .action-stack > a,
+      .pricing-actions .action-stack > a,
+      .hero-preview-actions > a,
+      .hero-preview-actions > button,
+      .contact-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-actions > .btn-secondary,
+      .example-actions > a,
+      .hero-preview-actions > a {
+        min-height: 50px;
+        padding: 14px 16px;
+        border: 1px solid rgba(35, 28, 22, 0.16);
+        background: rgba(255, 253, 249, 0.72);
+        border-bottom-width: 1px;
+      }
+
+      .hero-side {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding-top: 0;
+        border-top: none;
+        max-width: none;
+      }
+
+      .hero-preview-card {
+        order: 1;
+        margin-top: 0 !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+      }
+
+      .hero-preview-actions {
+        order: 2;
+        margin-top: 0 !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-side-title {
+        order: 4;
+        margin-bottom: 0;
+        padding-top: 8px;
+        border-top: 1px solid rgba(35, 28, 22, 0.12);
+      }
+
+      .hero-side-list {
+        order: 5;
+      }
+
+      .hero-side-item {
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 14px;
+        padding: 18px 0;
+      }
+
+      .hero-side-item p {
+        font-size: 16px;
+        line-height: 1.65;
+        max-width: none;
+      }
+
+      .hero-trust {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 18px;
+        margin-bottom: 24px;
+      }
+
+      .hero-meta {
+        order: 3;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding-top: 18px;
+      }
+
+      .hero-meta > div:last-child {
+        grid-column: 1 / -1;
+      }
+
       .steps-grid {
         grid-template-columns: 1fr;
       }
@@ -1470,30 +1745,95 @@
         grid-template-columns: 1fr;
       }
 
-      .pricing-table .pt-desc,
-      .pricing-table .pt-time {
+      .section,
+      .pricing-inner,
+      .contact-inner {
+        padding: 52px 0;
+      }
+
+      .section-header {
+        margin-bottom: 28px;
+        gap: 18px;
+      }
+
+      .proof-panel,
+      .service-card,
+      .outcome-item,
+      .why-card,
+      .faq-item,
+      .retainer-note {
+        padding: 24px;
+      }
+
+      .pricing-trust {
+        padding: 16px 18px;
+      }
+
+      .pricing-table {
+        table-layout: fixed;
+        margin-bottom: 24px;
+      }
+
+      .pricing-table th:nth-child(2),
+      .pricing-table td:nth-child(2) {
         display: none;
       }
 
-      .example-actions {
-        flex-direction: column;
-        align-items: flex-start;
+      .pricing-table th,
+      .pricing-table td {
+        padding: 14px 0;
       }
 
-      .hero-trust {
-        display: grid;
-        gap: 6px;
-        margin-bottom: 24px;
+      .pricing-table th:nth-child(1) { width: 46%; }
+      .pricing-table th:nth-child(3) { width: 25%; }
+      .pricing-table th:nth-child(4) { width: 29%; }
+
+      .pt-name {
+        font-size: 22px;
+        line-height: 1.08;
+        padding-right: 12px;
+        overflow-wrap: anywhere;
+      }
+
+      .pt-time,
+      .pt-price {
+        font-size: 11px;
+        line-height: 1.45;
+        white-space: normal;
+      }
+
+      .pt-time {
+        padding-right: 12px;
+      }
+
+      .pricing-actions {
+        align-items: stretch;
+        gap: 18px;
+      }
+
+      .pricing-actions p {
+        max-width: none;
+      }
+
+      .hero-trust-icon {
+        width: 44px;
+        height: 44px;
+      }
+
+      .hero-preview-services {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
 
       .example-browser {
         padding: 12px;
+        max-width: 100%;
       }
 
       .example-browser-screen,
       .example-browser-screen iframe {
-        min-height: 420px;
-        height: 420px;
+        min-height: 360px;
+        height: 360px;
+        max-width: 100%;
       }
 
       .example-modal {
@@ -1528,6 +1868,10 @@
         padding: 24px;
       }
 
+      .contact-button {
+        min-height: 50px;
+      }
+
       .contact-direct-link {
         font-size: 23px;
         word-break: break-word;
@@ -1542,12 +1886,97 @@
 
     @media (max-width: 560px) {
       nav {
+        padding: 14px 16px 16px;
+      }
+
+      .nav-logo img {
+        height: 40px;
+      }
+
+      .nav-links {
         grid-template-columns: 1fr;
       }
 
-      .nav-cta {
-        justify-self: stretch;
-        text-align: center;
+      .hero,
+      .section,
+      .pricing-inner,
+      .contact-inner,
+      footer {
+        width: calc(100% - 24px);
+      }
+
+      .hero {
+        padding: 48px 0 36px;
+        gap: 24px;
+      }
+
+      .hero-title {
+        font-size: clamp(34px, 10vw, 42px);
+      }
+
+      .hero-body {
+        font-size: 15px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta > div:last-child {
+        grid-column: auto;
+      }
+
+      .hero-trust {
+        padding: 16px;
+      }
+
+      .hero-preview-services {
+        grid-template-columns: 1fr !important;
+      }
+
+      .section,
+      .pricing-inner,
+      .contact-inner {
+        padding: 44px 0;
+      }
+
+      .proof-panel,
+      .service-card,
+      .outcome-item,
+      .why-card,
+      .faq-item,
+      .retainer-note {
+        padding: 20px;
+      }
+
+      .pricing-trust {
+        padding: 14px 16px;
+      }
+
+      .example-browser-screen,
+      .example-browser-screen iframe {
+        min-height: 320px;
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero-title {
+        font-size: 34px;
+      }
+
+      .hero-side-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .hero-side-item strong {
+        font-size: 12px;
+      }
+
+      .hero-preview-card,
+      .hero-preview-actions {
+        max-width: 100% !important;
       }
     }
   </style>
@@ -1564,7 +1993,18 @@
         decoding="async"
       />
     </a>
-    <ul class="nav-links">
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Atvērt navigāciju"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="primary-navigation">
       <li><a href="#services">Pakalpojumi</a></li>
       <li><a href="#process">Gaita</a></li>
       <li><a href="#pricing">Cenas</a></li>
@@ -1582,6 +2022,9 @@
           Veidoju tīras, modernas mājaslapas vietējiem pakalpojumu sniedzējiem, veikaliem, saloniem, kafejnīcām,
           amatniekiem un citiem vietējiem uzņēmumiem. Mērķis ir vienkāršs: palīdzēt jums izskatīties profesionāli,
           skaidri parādīt savu piedāvājumu un pārvērst apmeklētājus par klientu pieprasījumiem.
+          <br><br>
+          Nav aģentūras. Nav starpnieku. Strādāju tieši ar uzņēmumiem - tāpēc process ir ātrāks, lētāks un bez lieka trokšņa.
+          Mans mērķis ir vienkāršs: lai jūsu lapa strādā, ne tikai izskatās.
         </p>
         <div class="hero-actions">
           <div class="action-stack">
@@ -1591,8 +2034,11 @@
           <a href="#pricing" class="btn-secondary">Apskatīt cenas</a>
         </div>
         <div class="hero-trust">
-          <strong>Maksājums pēc apstiprinājuma</strong>
-          <span>Apmaksu lūdzu tikai pēc tam, kad dizains ir izveidots un esam vienojušies par visu līdz galam.</span>
+          <span class="hero-trust-icon" aria-hidden="true"></span>
+          <div class="hero-trust-copy">
+            <strong>Maksājums pēc apstiprinājuma</strong>
+            <span>Apmaksu lūdzu tikai pēc tam, kad dizains ir izveidots un esam vienojušies par visu līdz galam.</span>
+          </div>
         </div>
         <div class="hero-meta">
           <div>
@@ -1626,7 +2072,7 @@
             <p>Ja nepieciešams, varu pievienot formas, Supabase integrāciju un vienkāršas datu plūsmas bez liekas sarežģītības.</p>
           </div>
         </div>
-        <div style="margin-top:38px;width:100%;max-width:430px;margin-left:auto;border:1px solid rgba(35,28,22,0.12);border-radius:10px;box-shadow:0 20px 48px rgba(9,18,31,0.16);background:#ffffff;overflow:hidden;">
+        <div class="hero-preview-card" style="margin-top:38px;width:100%;max-width:430px;margin-left:auto;border:1px solid rgba(35,28,22,0.12);border-radius:10px;box-shadow:0 20px 48px rgba(9,18,31,0.16);background:#ffffff;overflow:hidden;">
           <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f3f6fa;border-bottom:1px solid rgba(15,38,63,0.08);">
             <div style="width:9px;height:9px;border-radius:50%;background:#d3dae4;"></div>
             <div style="width:9px;height:9px;border-radius:50%;background:#c2ccda;"></div>
@@ -1649,7 +2095,7 @@
             </div>
           </div>
           <div style="padding:16px 18px 18px;background:#ffffff;">
-            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+            <div class="hero-preview-services" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
               <div style="padding:11px 10px;border:1px solid rgba(13,35,58,0.08);border-radius:10px;background:#f7fbff;">
                 <div style="width:26px;height:26px;border-radius:8px;background:#d8efff;color:#0e8de2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;">1</div>
                 <div style="margin-top:10px;font-size:11px;line-height:1.35;font-weight:800;color:#10243a;">Ekrāna maiņa</div>
@@ -1683,7 +2129,7 @@
             </div>
           </div>
         </div>
-        <div style="margin-top:16px;max-width:430px;margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;">
+        <div class="hero-preview-actions" style="margin-top:16px;max-width:430px;margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;">
           <button type="button" data-open-mobile-example style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;border:1px solid #173d32;background:#173d32;color:#ffffff;font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;cursor:pointer;">Atvērt pilno piemēru</button>
           <a href="#examples" style="display:inline-flex;align-items:center;min-height:52px;padding:0 0 2px;color:#173d32;border-bottom:1px solid rgba(35,28,22,0.16);font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;">Citi piemēri</a>
         </div>
@@ -2284,6 +2730,14 @@
       table: String(window.SUPABASE_SERVICES_CONFIG?.table ?? sharedSupabaseConfig.servicesTable ?? "service_cards").trim(),
     };
 
+    const siteNav = document.querySelector("nav");
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenuLinks = document.querySelectorAll(".nav-links a, .nav-cta");
+    const heroCopy = document.querySelector(".hero-copy");
+    const heroTrust = document.querySelector(".hero-trust");
+    const heroMeta = document.querySelector(".hero-meta");
+    const heroSide = document.querySelector(".hero-side");
+    const heroPreviewActions = document.querySelector(".hero-preview-actions");
     const servicesGrid = document.getElementById("services-grid");
     const contactForm = document.getElementById("contact-form");
     const contactFeedback = document.getElementById("form-msg");
@@ -2326,6 +2780,70 @@
         observer.observe(element);
       });
     }
+
+    function closeNav() {
+      if (!siteNav || !navToggle) {
+        return;
+      }
+
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Atvērt navigāciju");
+    }
+
+    function syncHeroMobileLayout() {
+      if (!heroCopy || !heroTrust || !heroMeta || !heroSide || !heroPreviewActions) {
+        return;
+      }
+
+      if (window.innerWidth <= 720) {
+        heroPreviewActions.after(heroMeta);
+        return;
+      }
+
+      heroTrust.after(heroMeta);
+    }
+
+    navToggle?.addEventListener("click", () => {
+      if (!siteNav) {
+        return;
+      }
+
+      const isOpen = !siteNav.classList.contains("is-open");
+      siteNav.classList.toggle("is-open", isOpen);
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Aizvērt navigāciju" : "Atvērt navigāciju");
+    });
+
+    navMenuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 720) {
+          closeNav();
+        }
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      syncHeroMobileLayout();
+
+      if (window.innerWidth > 720) {
+        closeNav();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!siteNav?.classList.contains("is-open")) {
+        return;
+      }
+
+      if (navToggle?.contains(event.target)) {
+        return;
+      }
+
+      if (!siteNav.contains(event.target)) {
+        closeNav();
+      }
+    });
 
     function hasSupabaseConfig(config) {
       return Boolean(config.url && config.anonKey && config.table);
@@ -2658,10 +3176,16 @@
 
       if (martaFullModal && !martaFullModal.hidden) {
         closeMartaExample();
+        return;
+      }
+
+      if (siteNav?.classList.contains("is-open")) {
+        closeNav();
       }
     });
 
     contactForm?.addEventListener("submit", submitForm);
+    syncHeroMobileLayout();
     loadEmbeddedMobilePreview();
     loadEmbeddedMartaPreview();
     loadServicesFromSupabase();
