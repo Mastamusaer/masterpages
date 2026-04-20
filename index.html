@@ -251,7 +251,46 @@
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 44px;
+      margin-bottom: 26px;
+    }
+
+    .action-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .cta-microcopy {
+      display: block;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted-soft);
+    }
+
+    .hero-trust {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding: 14px 18px;
+      border: 1px solid rgba(41, 78, 70, 0.16);
+      background: rgba(230, 238, 235, 0.62);
+    }
+
+    .hero-trust strong {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .hero-trust span {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 40ch;
     }
 
     .hero-meta {
@@ -393,6 +432,14 @@
       margin-bottom: 22px;
     }
 
+    .proof-note {
+      padding-top: 18px;
+      border-top: 1px solid rgba(35, 28, 22, 0.12);
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 50ch;
+    }
+
     .micro-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -501,6 +548,230 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--warm);
+    }
+
+    .examples-section {
+      background: linear-gradient(180deg, #fcf8f2 0%, #f5eee5 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .example-layout {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .example-copy {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .example-label {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .example-name {
+      font-family: "Newsreader", serif;
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .example-desc {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 42ch;
+      margin-bottom: 24px;
+    }
+
+    .example-list {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .example-list li {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+    }
+
+    .example-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .example-browser {
+      padding: 16px;
+      border: 1px solid rgba(35, 28, 22, 0.14);
+      background: rgba(255, 253, 249, 0.84);
+      box-shadow: var(--shadow);
+    }
+
+    .example-browser-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 4px 14px;
+    }
+
+    .example-browser-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .example-browser-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(35, 28, 22, 0.16);
+    }
+
+    .example-browser-url {
+      flex: 1;
+      min-width: 0;
+      padding: 9px 14px;
+      border: 1px solid rgba(35, 28, 22, 0.12);
+      background: rgba(243, 237, 228, 0.9);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .example-browser-screen {
+      min-height: 620px;
+      border: 1px solid rgba(35, 28, 22, 0.12);
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .example-browser-screen iframe {
+      width: 100%;
+      height: 620px;
+      border: 0;
+      display: block;
+      background: var(--surface);
+    }
+
+    .example-deliverables {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 16px;
+      border: 1px solid rgba(35, 28, 22, 0.12);
+      background: rgba(35, 28, 22, 0.12);
+    }
+
+    .example-deliverable {
+      padding: 18px 18px 20px;
+      background: rgba(255, 253, 249, 0.96);
+    }
+
+    .example-deliverable span {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .example-deliverable strong {
+      display: block;
+      font-family: "Newsreader", serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .mid-cta-section {
+      background: linear-gradient(180deg, rgba(230, 238, 235, 0.56) 0%, rgba(250, 246, 240, 0.92) 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mid-cta-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.86fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .mid-cta-copy {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .fit-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .fit-item {
+      padding: 14px 16px;
+      border: 1px solid rgba(41, 78, 70, 0.16);
+      background: rgba(255, 253, 249, 0.88);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--accent-strong);
+    }
+
+    .mid-cta-panel {
+      padding: 30px;
+      border: 1px solid rgba(41, 78, 70, 0.18);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .mid-cta-kicker {
+      margin-bottom: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .mid-cta-title {
+      font-family: "Newsreader", serif;
+      font-size: 39px;
+      font-weight: 600;
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .mid-cta-body {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 38ch;
+      margin-bottom: 24px;
     }
 
     .process-section {
@@ -647,6 +918,39 @@
       max-width: 46ch;
     }
 
+    .pricing-trust {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 26px;
+      padding: 18px 20px;
+      border: 1px solid rgba(41, 78, 70, 0.18);
+      background: rgba(230, 238, 235, 0.68);
+    }
+
+    .pricing-trust strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .pricing-trust p {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 54ch;
+    }
+
+    .pricing-positioning {
+      margin: -6px 0 28px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-strong);
+    }
+
     .trust-section {
       background: var(--surface);
       border-bottom: 1px solid var(--line);
@@ -724,6 +1028,40 @@
       color: var(--muted-soft);
     }
 
+    .contact-direct {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border: 1px solid rgba(41, 78, 70, 0.16);
+      background: rgba(230, 238, 235, 0.6);
+    }
+
+    .contact-direct-label {
+      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .contact-direct-link {
+      display: inline-flex;
+      align-items: center;
+      font-family: "Newsreader", serif;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .contact-direct-link:hover { color: var(--accent); }
+
+    .contact-direct-copy {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
     .contact-form {
       position: relative;
       display: flex;
@@ -738,6 +1076,10 @@
       margin-top: -2px;
       font-size: 13px;
       color: var(--muted);
+    }
+
+    .form-microcopy {
+      margin-top: -6px;
     }
 
     .form-field label {
@@ -876,6 +1218,8 @@
       .hero,
       .section-header,
       .proof-layout,
+      .example-layout,
+      .mid-cta-grid,
       .contact-inner {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -904,6 +1248,11 @@
         align-items: flex-start;
       }
 
+      .pricing-trust {
+        flex-direction: column;
+        gap: 10px;
+      }
+
       .section-header {
         margin-bottom: 36px;
       }
@@ -915,6 +1264,20 @@
       }
 
       .service-card-wide {
+        grid-template-columns: 1fr;
+      }
+
+      .example-browser-screen,
+      .example-browser-screen iframe {
+        min-height: 560px;
+        height: 560px;
+      }
+
+      .example-deliverables {
+        grid-template-columns: 1fr;
+      }
+
+      .fit-list {
         grid-template-columns: 1fr;
       }
 
@@ -993,8 +1356,34 @@
         display: none;
       }
 
+      .example-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-trust {
+        display: grid;
+        gap: 6px;
+        margin-bottom: 24px;
+      }
+
+      .example-browser {
+        padding: 12px;
+      }
+
+      .example-browser-screen,
+      .example-browser-screen iframe {
+        min-height: 420px;
+        height: 420px;
+      }
+
       .contact-form {
         padding: 24px;
+      }
+
+      .contact-direct-link {
+        font-size: 23px;
+        word-break: break-word;
       }
 
       footer {
@@ -1048,8 +1437,15 @@
           skaidri parādīt savu piedāvājumu un pārvērst apmeklētājus par klientu pieprasījumiem.
         </p>
         <div class="hero-actions">
-          <a href="#contact" class="btn-primary">Saņemt piedāvājumu</a>
+          <div class="action-stack">
+            <a href="#contact" class="btn-primary">Saņemt piedāvājumu</a>
+            <span class="cta-microcopy">Parasti atbildu 24 stundu laikā</span>
+          </div>
           <a href="#pricing" class="btn-secondary">Apskatīt cenas</a>
+        </div>
+        <div class="hero-trust">
+          <strong>Maksājums pēc apstiprinājuma</strong>
+          <span>Apmaksu lūdzu tikai pēc tam, kad dizains ir izveidots un esam vienojušies par visu līdz galam.</span>
         </div>
         <div class="hero-meta">
           <div>
@@ -1083,6 +1479,67 @@
             <p>Ja nepieciešams, varu pievienot formas, Supabase integrāciju un vienkāršas datu plūsmas bez liekas sarežģītības.</p>
           </div>
         </div>
+        <div style="margin-top:38px;width:100%;max-width:430px;margin-left:auto;border:1px solid rgba(35,28,22,0.12);border-radius:10px;box-shadow:0 20px 48px rgba(9,18,31,0.16);background:#ffffff;overflow:hidden;">
+          <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f3f6fa;border-bottom:1px solid rgba(15,38,63,0.08);">
+            <div style="width:9px;height:9px;border-radius:50%;background:#d3dae4;"></div>
+            <div style="width:9px;height:9px;border-radius:50%;background:#c2ccda;"></div>
+            <div style="width:9px;height:9px;border-radius:50%;background:#b4c0d0;"></div>
+            <div style="flex:1 1 auto;min-height:38px;display:flex;align-items:center;padding:0 14px;border:1px solid rgba(35,28,22,0.12);background:rgba(244,239,231,0.72);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9f8560;">Piemēra priekšskats</div>
+          </div>
+          <div style="padding:18px;background:linear-gradient(135deg,#07111d 0%,#0c1c31 58%,#0e2744 100%);color:#ffffff;">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+              <div>
+                <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#44b2ff;">Rīga Fix</div>
+                <div style="margin-top:10px;font-size:24px;line-height:1.1;font-weight:800;">Telefona remonts Rīgā</div>
+                <div style="margin-top:8px;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.78);max-width:30ch;">Ātra diagnostika, skaidras cenas un biežāko remontu izpilde vienas dienas laikā.</div>
+              </div>
+              <div style="flex:0 0 82px;height:96px;border-radius:14px;border:1px solid rgba(255,255,255,0.18);background:linear-gradient(180deg,#14273c 0%,#0a1422 100%);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.04);">
+                <div style="width:46px;height:76px;border-radius:11px;border:1px solid rgba(255,255,255,0.2);background:linear-gradient(180deg,#1f3652 0%,#0b1828 100%);position:relative;">
+                  <div style="position:absolute;top:7px;left:50%;transform:translateX(-50%);width:18px;height:3px;border-radius:999px;background:rgba(255,255,255,0.24);"></div>
+                  <div style="position:absolute;inset:14px 7px 8px;border-radius:8px;background:linear-gradient(180deg,#111f31 0%,#08111c 100%);border:1px solid rgba(68,178,255,0.2);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:16px 18px 18px;background:#ffffff;">
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+              <div style="padding:11px 10px;border:1px solid rgba(13,35,58,0.08);border-radius:10px;background:#f7fbff;">
+                <div style="width:26px;height:26px;border-radius:8px;background:#d8efff;color:#0e8de2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;">1</div>
+                <div style="margin-top:10px;font-size:11px;line-height:1.35;font-weight:800;color:#10243a;">Ekrāna maiņa</div>
+              </div>
+              <div style="padding:11px 10px;border:1px solid rgba(13,35,58,0.08);border-radius:10px;background:#f7fbff;">
+                <div style="width:26px;height:26px;border-radius:8px;background:#d8efff;color:#0e8de2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;">2</div>
+                <div style="margin-top:10px;font-size:11px;line-height:1.35;font-weight:800;color:#10243a;">Baterijas maiņa</div>
+              </div>
+              <div style="padding:11px 10px;border:1px solid rgba(13,35,58,0.08);border-radius:10px;background:#f7fbff;">
+                <div style="width:26px;height:26px;border-radius:8px;background:#d8efff;color:#0e8de2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;">3</div>
+                <div style="margin-top:10px;font-size:11px;line-height:1.35;font-weight:800;color:#10243a;">Uzlādes ports</div>
+              </div>
+            </div>
+            <div style="margin-top:16px;border:1px solid rgba(13,35,58,0.08);border-radius:10px;overflow:hidden;background:#fbfdff;">
+              <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 12px;background:#edf6ff;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#0e8de2;">
+                <span>Modelis</span>
+                <span>Cena</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-top:1px solid rgba(13,35,58,0.08);font-size:13px;color:#10243a;">
+                <span>iPhone 11</span>
+                <strong style="font-size:13px;color:#0a1c2d;">€89</strong>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-top:1px solid rgba(13,35,58,0.08);font-size:13px;color:#10243a;">
+                <span>iPhone 12</span>
+                <strong style="font-size:13px;color:#0a1c2d;">€119</strong>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-top:1px solid rgba(13,35,58,0.08);font-size:13px;color:#10243a;">
+                <span>Samsung S20</span>
+                <strong style="font-size:13px;color:#0a1c2d;">€129</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:16px;max-width:430px;margin-left:auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;">
+          <a href="#proof" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;background:#173d32;color:#ffffff;font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;">Atvērt pilno piemēru</a>
+          <a href="#examples" style="display:inline-flex;align-items:center;min-height:52px;padding:0 0 2px;color:#173d32;border-bottom:1px solid rgba(35,28,22,0.16);font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;">Citi piemēri</a>
+        </div>
       </aside>
     </section>
   </div>
@@ -1106,6 +1563,9 @@
           <p class="proof-copy">
             Es fokusējos uz skaidrību, nevis lieku troksni: spēcīgi virsraksti, vienkārša navigācija, uzticams izkārtojums,
             mobilajām ierīcēm pielāgots dizains un aicinājumi rīkoties, kas palīdz apmeklētājam spert nākamo soli.
+          </p>
+          <p class="proof-note">
+            Strādāju tieši ar vietējiem uzņēmumiem, saprotu to vajadzības un fokusējos uz vienkāršiem, praktiskiem risinājumiem.
           </p>
           <ul class="micro-list">
             <li>Piemērots amatniekiem</li>
@@ -1198,6 +1658,105 @@
     </div>
   </section>
 
+  <section class="examples-section" id="examples">
+    <div class="section">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-flag">Piemērs</p>
+          <h2 class="section-title">Apmēram šādi varētu izskatīties arī jūsu mājaslapa</h2>
+        </div>
+        <p class="section-desc">
+          Zemāk ir dzīvs piemērs, lai varētu sajust ne tikai tekstu un struktūru, bet arī kopējo noskaņu, kvalitāti un pirmo iespaidu.
+        </p>
+      </div>
+
+      <div class="example-layout reveal delay-1">
+        <div class="example-copy">
+          <span class="example-label">Piemēra projekts</span>
+          <h3 class="example-name">Marta's — Hair Studio</h3>
+          <p class="example-desc">
+            Elegants piemērs skaistumkopšanas biznesam ar izteiktu vizuālo identitāti, skaidriem pakalpojumiem un pārliecinošu premium sajūtu.
+            Šādu pieeju var pielāgot arī saloniem, studijām, restorāniem, apartamentiem vai citiem vietējiem uzņēmumiem.
+          </p>
+          <ul class="example-list">
+            <li>Pārdomāts premium vizuālais tonis</li>
+            <li>Skaidras darbības pogas un rezervācijas plūsma</li>
+            <li>Spēcīgāks priekšstats par uzņēmuma kvalitāti</li>
+          </ul>
+          <div class="example-actions">
+            <a href="marta-hair-studio.html" target="_blank" rel="noopener" class="btn-primary">Atvērt pilno piemēru</a>
+            <a href="#contact" class="btn-secondary">Vēlos līdzīgu pieeju</a>
+          </div>
+        </div>
+
+        <div class="example-browser">
+          <div class="example-browser-bar" aria-hidden="true">
+            <div class="example-browser-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="example-browser-url">Piemēra priekšskats</div>
+          </div>
+          <div class="example-browser-screen">
+            <iframe
+              src="marta-hair-studio.html"
+              title="Marta's — Hair Studio piemēra mājaslapas priekšskats"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="example-deliverables" aria-label="Piegādājamais rezultāts">
+            <div class="example-deliverable">
+              <span>Piegāde</span>
+              <strong>Izveidots 3 dienās</strong>
+            </div>
+            <div class="example-deliverable">
+              <span>Ierīces</span>
+              <strong>Mobilajām ierīcēm optimizēts</strong>
+            </div>
+            <div class="example-deliverable">
+              <span>Mērķis</span>
+              <strong>Piemērots rezervācijām / kontaktiem</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mid-cta-section">
+    <div class="section">
+      <div class="mid-cta-grid reveal">
+        <div class="mid-cta-copy">
+          <p class="section-flag">Kam tas ir piemērots</p>
+          <h2 class="section-title">Labs risinājums uzņēmumiem, kuriem vajag uzticamu mājaslapu bez aģentūras jucekļa.</h2>
+          <p class="section-desc">
+            Vislabāk der, ja jums vajag skaidru pirmo iespaidu, saprotamu piedāvājumu un vienu vietu, kur klients var ērti pieteikties vai sazināties.
+          </p>
+          <ul class="fit-list">
+            <li class="fit-item">Vietējiem pakalpojumu sniedzējiem</li>
+            <li class="fit-item">Saloniem</li>
+            <li class="fit-item">Kafejnīcām</li>
+            <li class="fit-item">Amatniekiem</li>
+            <li class="fit-item">Viesu mājām</li>
+          </ul>
+        </div>
+
+        <div class="mid-cta-panel">
+          <p class="mid-cta-kicker">Nākamais solis</p>
+          <h3 class="mid-cta-title">Ja vēlaties līdzīgu rezultātu savam uzņēmumam, varam sākt ar īsu ziņu.</h3>
+          <p class="mid-cta-body">
+            Aprakstiet, ar ko nodarbojaties un kas jums vajadzīgs, un es atbildēšu ar skaidru piedāvājumu, termiņu un ieteicamo pieeju.
+          </p>
+          <div class="action-stack">
+            <a href="#contact" class="btn-primary">Sākt projektu</a>
+            <span class="cta-microcopy">Bez saistībām un bez sarežģīta procesa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="process-section" id="process">
     <div class="section">
       <div class="section-header reveal">
@@ -1256,6 +1815,8 @@
         </p>
       </div>
 
+      <p class="pricing-positioning reveal delay-1">Lētāk nekā tipiska aģentūra, bez liekām izmaksām.</p>
+
       <table class="pricing-table reveal delay-1">
         <thead>
           <tr>
@@ -1299,11 +1860,21 @@
         </tbody>
       </table>
 
+      <div class="pricing-trust reveal delay-2">
+        <div>
+          <strong>Bez lieka riska</strong>
+          <p>Maksājumu lūdzu tikai pēc dizaina apstiprinājuma. Vispirms redzat, kas ir izveidots, un tikai tad pieņemat galīgo lēmumu.</p>
+        </div>
+      </div>
+
       <div class="pricing-actions reveal delay-2">
         <p>
           Ja jau aptuveni zināt, kas jums vajadzīgs, varam sākt ar īsu sarunu un konkrētu piedāvājumu tieši jūsu uzņēmumam.
         </p>
-        <a href="#contact" class="btn-primary">Pieteikt projektu</a>
+        <div class="action-stack">
+          <a href="#contact" class="btn-primary">Pieteikt projektu</a>
+          <span class="cta-microcopy">Bez saistībām</span>
+        </div>
       </div>
 
       <div class="retainer-note reveal delay-2">
@@ -1421,6 +1992,11 @@
           <span>Vienkāršs process</span>
           <span>Bez spiediena un sarežģītiem terminiem</span>
         </div>
+        <div class="contact-direct">
+          <p class="contact-direct-label">Tiešais kontakts</p>
+          <a href="mailto:sveiki@lapumeistars.lv" class="contact-direct-link">sveiki@lapumeistars.lv</a>
+          <p class="contact-direct-copy">Ja ērtāk, varat rakstīt arī tieši uz e-pastu.</p>
+        </div>
       </div>
 
       <div class="reveal delay-1">
@@ -1475,6 +2051,7 @@
             ></textarea>
           </div>
           <button type="submit" class="contact-button">Nosūtīt pieteikumu</button>
+          <p class="cta-microcopy form-microcopy">Aizņem apmēram 1 minūti</p>
           <div class="form-msg" id="form-msg" aria-live="polite"></div>
         </form>
       </div>
