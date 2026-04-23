@@ -459,6 +459,12 @@
       align-self: start;
     }
 
+    .hero-side .example-browser {
+      width: 100%;
+      max-width: 100%;
+      margin-left: auto;
+    }
+
     .hero-side-title {
       font-size: 13px;
       font-weight: 800;
@@ -495,35 +501,6 @@
       font-size: 18px;
       line-height: 1.75;
       max-width: 34ch;
-    }
-
-    .hero-preview-card,
-    .hero-preview-actions {
-      width: 100%;
-      max-width: 430px;
-      margin-left: auto;
-    }
-
-    .hero-preview-card {
-      margin-top: 38px;
-    }
-
-    .hero-preview-services {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .hero-preview-actions {
-      margin-top: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px 18px;
-    }
-
-    .hero-preview-actions > * {
-      flex: 0 0 auto;
     }
 
     .section,
@@ -722,6 +699,12 @@
       grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
       gap: 40px;
       align-items: start;
+    }
+
+    .example-layout + .example-layout {
+      margin-top: 54px;
+      padding-top: 54px;
+      border-top: 1px solid rgba(35, 28, 22, 0.12);
     }
 
     .example-copy {
@@ -1710,7 +1693,6 @@
       .example-actions > *,
       .mid-cta-panel .action-stack,
       .pricing-actions .action-stack,
-      .hero-preview-actions > *,
       .contact-button {
         width: 100%;
       }
@@ -1721,8 +1703,6 @@
       .example-actions > button,
       .mid-cta-panel .action-stack > a,
       .pricing-actions .action-stack > a,
-      .hero-preview-actions > a,
-      .hero-preview-actions > button,
       .contact-button {
         display: flex;
         align-items: center;
@@ -1732,8 +1712,7 @@
       }
 
       .hero-actions > .btn-secondary,
-      .example-actions > a,
-      .hero-preview-actions > a {
+      .example-actions > a {
         min-height: 50px;
         padding: 14px 16px;
         border: 1px solid rgba(35, 28, 22, 0.16);
@@ -1744,48 +1723,9 @@
       .hero-side {
         display: flex;
         flex-direction: column;
-        gap: 18px;
+        gap: 0;
         padding-top: 0;
         border-top: none;
-        max-width: none;
-      }
-
-      .hero-preview-card {
-        order: 1;
-        margin-top: 0 !important;
-        max-width: 100% !important;
-        margin-left: 0 !important;
-      }
-
-      .hero-preview-actions {
-        order: 2;
-        margin-top: 0 !important;
-        max-width: 100% !important;
-        margin-left: 0 !important;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-side-title {
-        order: 4;
-        margin-bottom: 0;
-        padding-top: 8px;
-        border-top: 1px solid rgba(35, 28, 22, 0.12);
-      }
-
-      .hero-side-list {
-        order: 5;
-      }
-
-      .hero-side-item {
-        grid-template-columns: 44px minmax(0, 1fr);
-        gap: 14px;
-        padding: 18px 0;
-      }
-
-      .hero-side-item p {
-        font-size: 16px;
-        line-height: 1.65;
         max-width: none;
       }
 
@@ -1889,10 +1829,6 @@
       .hero-trust-icon {
         width: 44px;
         height: 44px;
-      }
-
-      .hero-preview-services {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
 
       .example-browser {
@@ -2013,10 +1949,6 @@
         padding: 16px;
       }
 
-      .hero-preview-services {
-        grid-template-columns: 1fr !important;
-      }
-
       .section,
       .pricing-inner,
       .contact-inner {
@@ -2070,10 +2002,6 @@
         font-size: 12px;
       }
 
-      .hero-preview-card,
-      .hero-preview-actions {
-        max-width: 100% !important;
-      }
     }
   </style>
 </head>
@@ -2128,7 +2056,7 @@
             <a href="index.html#contact" class="btn-primary">Saņemt piedāvājumu</a>
             <span class="cta-microcopy">Parasti atbildu 24 stundu laikā</span>
           </div>
-          <a href="#marta-example" class="btn-secondary">Skatīt pilnos piemērus</a>
+          <a href="#mobile-example" class="btn-secondary">Skatīt pilnos piemērus</a>
         </div>
         <div class="hero-trust">
           <span class="hero-trust-icon" aria-hidden="true"></span>
@@ -2154,81 +2082,22 @@
       </div>
 
       <aside class="hero-side reveal delay-1">
-        <p class="hero-side-title">Ko šeit varēsiet novērtēt</p>
-        <div class="hero-side-list">
-          <div class="hero-side-item">
-            <strong>01</strong>
-            <p>Kā izskatās skaidrs pirmais bloks ar uzticamu virsrakstu un saprotamu piedāvājumu.</p>
-          </div>
-          <div class="hero-side-item">
-            <strong>02</strong>
-            <p>Kā tiek sakārtoti pakalpojumi, cenas un kontakti, lai apmeklētājs neapmaldās.</p>
-          </div>
-          <div class="hero-side-item">
-            <strong>03</strong>
-            <p>Kā vizuālais tonis tiek pielāgots atšķirīgiem vietējiem uzņēmumiem bez dizaina jucekļa.</p>
-          </div>
-        </div>
-        <div class="hero-preview-card" style="width:100%;border:1px solid rgba(35,28,22,0.12);border-radius:10px;box-shadow:0 20px 48px rgba(9,18,31,0.16);background:#ffffff;overflow:hidden;">
-          <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f3f6fa;border-bottom:1px solid rgba(15,38,63,0.08);">
-            <div style="width:9px;height:9px;border-radius:50%;background:#d3dae4;"></div>
-            <div style="width:9px;height:9px;border-radius:50%;background:#c2ccda;"></div>
-            <div style="width:9px;height:9px;border-radius:50%;background:#b4c0d0;"></div>
-            <div style="flex:1 1 auto;min-height:38px;display:flex;align-items:center;padding:0 14px;border:1px solid rgba(35,28,22,0.12);background:rgba(244,239,231,0.72);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9f8560;">Piemēra priekšskats</div>
-          </div>
-          <div style="padding:18px;background:linear-gradient(135deg,#07111d 0%,#0c1c31 58%,#0e2744 100%);color:#ffffff;">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
-              <div>
-                <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#44b2ff;">Rīga Fix</div>
-                <div style="margin-top:10px;font-size:24px;line-height:1.1;font-weight:800;">Telefona remonts Rīgā</div>
-                <div style="margin-top:8px;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.78);max-width:30ch;">Ātra diagnostika, skaidras cenas un biežāko remontu izpilde vienas dienas laikā.</div>
-              </div>
-              <div style="flex:0 0 82px;height:96px;border-radius:14px;border:1px solid rgba(255,255,255,0.18);background:linear-gradient(180deg,#14273c 0%,#0a1422 100%);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.04);">
-                <div style="width:46px;height:76px;border-radius:11px;border:1px solid rgba(255,255,255,0.2);background:linear-gradient(180deg,#1f3652 0%,#0b1828 100%);position:relative;">
-                  <div style="position:absolute;top:7px;left:50%;transform:translateX(-50%);width:18px;height:3px;border-radius:999px;background:rgba(255,255,255,0.24);"></div>
-                  <div style="position:absolute;inset:14px 7px 8px;border-radius:8px;background:linear-gradient(180deg,#111f31 0%,#08111c 100%);border:1px solid rgba(68,178,255,0.2);"></div>
-                </div>
-              </div>
+        <div class="example-browser">
+          <div class="example-browser-bar" aria-hidden="true">
+            <div class="example-browser-dots">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
+            <div class="example-browser-url">Piemēra priekšskats</div>
           </div>
-          <div style="padding:16px 18px 18px;background:#ffffff;">
-            <div class="hero-preview-services" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
-              <div style="padding:11px 10px;border:1px solid rgba(13,35,58,0.08);border-radius:10px;background:#f7fbff;">
-                <div style="width:26px;height:26px;border-radius:8px;background:#d8efff;color:#0e8de2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;">1</div>
-                <div style="margin-top:10px;font-size:11px;line-height:1.35;font-weight:800;color:#10243a;">Ekrāna maiņa</div>
-              </div>
-              <div style="padding:11px 10px;border:1px solid rgba(13,35,58,0.08);border-radius:10px;background:#f7fbff;">
-                <div style="width:26px;height:26px;border-radius:8px;background:#d8efff;color:#0e8de2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;">2</div>
-                <div style="margin-top:10px;font-size:11px;line-height:1.35;font-weight:800;color:#10243a;">Baterijas maiņa</div>
-              </div>
-              <div style="padding:11px 10px;border:1px solid rgba(13,35,58,0.08);border-radius:10px;background:#f7fbff;">
-                <div style="width:26px;height:26px;border-radius:8px;background:#d8efff;color:#0e8de2;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;">3</div>
-                <div style="margin-top:10px;font-size:11px;line-height:1.35;font-weight:800;color:#10243a;">Uzlādes ports</div>
-              </div>
-            </div>
-            <div style="margin-top:16px;border:1px solid rgba(13,35,58,0.08);border-radius:10px;overflow:hidden;background:#fbfdff;">
-              <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 12px;background:#edf6ff;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#0e8de2;">
-                <span>Modelis</span>
-                <span>Cena</span>
-              </div>
-              <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-top:1px solid rgba(13,35,58,0.08);font-size:13px;color:#10243a;">
-                <span>iPhone 11</span>
-                <strong style="font-size:13px;color:#0a1c2d;">€89</strong>
-              </div>
-              <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-top:1px solid rgba(13,35,58,0.08);font-size:13px;color:#10243a;">
-                <span>iPhone 12</span>
-                <strong style="font-size:13px;color:#0a1c2d;">€119</strong>
-              </div>
-              <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-top:1px solid rgba(13,35,58,0.08);font-size:13px;color:#10243a;">
-                <span>Samsung S20</span>
-                <strong style="font-size:13px;color:#0a1c2d;">€129</strong>
-              </div>
-            </div>
+          <div class="example-browser-screen">
+            <iframe
+              src="file:///C:/Users/HP/Documents/Codex/2026-04-23-recreate-this-website-https-honestaccurateauto-com/index.html"
+              title="Jūsu logo autoservisa piemēra mājaslapas priekšskats"
+              loading="lazy"
+            ></iframe>
           </div>
-        </div>
-        <div class="hero-preview-actions" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;">
-          <button type="button" data-open-mobile-example style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;border:1px solid #173d32;background:#173d32;color:#ffffff;font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;cursor:pointer;">Atvērt pilno piemēru</button>
-          <a href="#marta-example" style="display:inline-flex;align-items:center;min-height:52px;padding:0 0 2px;color:#173d32;border-bottom:1px solid rgba(35,28,22,0.16);font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;white-space:nowrap;">Otrs piemērs</a>
         </div>
       </aside>
     </section>
@@ -2250,12 +2119,12 @@
           <span class="example-label">Pilnais piemērs</span>
           <h3 class="example-name" id="mobile-full-example-title">RĪGA FIX | Telefonu remonts Rīgā</h3>
         </div>
-        <p class="example-modal-note">Mobilā remonta piemērs ar skaidru pakalpojumu, cenu un kontaktu plūsmu vietējam uzņēmumam.</p>
+        <p class="example-modal-note">Telefonu remonta piemērs ar skaidru pakalpojumu, cenu un kontaktu plūsmu vietējam uzņēmumam.</p>
       </div>
       <div class="example-modal-screen">
         <iframe
           id="mobile-full-frame"
-            src="file:///D:/lapu%20meistars/examples/mobicentrs-riga.html"
+            src="file:///D:/lapu%20meistars/examples/rigafix-blue.html"
           title="RĪGA FIX pilnais piemērs"
           loading="lazy"
         ></iframe>
@@ -2263,7 +2132,7 @@
     </div>
   </div>
 
-  <section class="examples-section" id="marta-example">
+  <section class="examples-section" id="mobile-example">
     <div class="section">
       <div class="section-header reveal">
         <div>
@@ -2277,6 +2146,60 @@
       </div>
 
       <div class="example-layout reveal delay-1">
+        <div class="example-copy">
+          <span class="example-label">Piemēra projekts</span>
+          <h3 class="example-name">RĪGA FIX</h3>
+          <p class="example-desc">
+            Skaidrs telefonu remonta piemērs ar pārliecinošu pirmo bloku, saprotamu pakalpojumu sadalījumu un cenu struktūru,
+            kas palīdz klientam ātri saprast, ko jūs piedāvājat un kā ar jums sazināties.
+          </p>
+          <ul class="example-list">
+            <li>Tehnisks vizuālais tonis bez liekiem trokšņiem</li>
+            <li>Skaidri pakalpojumu un cenu bloki</li>
+            <li>Pielāgots ātrai saziņai un pierakstam</li>
+          </ul>
+          <div class="example-actions">
+            <button type="button" class="btn-primary" data-open-mobile-example>Atvērt pilno piemēru</button>
+            <a href="index.html#contact" class="btn-secondary">Vēlos līdzīgu pieeju</a>
+          </div>
+          <div class="example-deliverables" aria-label="Piegādājamais rezultāts">
+            <div class="example-deliverable">
+              <span>Piegāde</span>
+              <strong>Izveidots 2 dienās</strong>
+            </div>
+            <div class="example-deliverable">
+              <span>Ierīces</span>
+              <strong>Mobilajām ierīcēm optimizēts</strong>
+            </div>
+            <div class="example-deliverable">
+              <span>Mērķis</span>
+              <strong>Piemērots cenām / kontaktiem</strong>
+            </div>
+          </div>
+          <p class="example-mobile-note">Ja vēlaties līdzīgu pieeju savam uzņēmumam, pielāgošu struktūru, tekstu un vizuālo toni tieši jūsu pakalpojumiem.</p>
+        </div>
+
+        <div class="example-browser">
+          <div class="example-browser-bar" aria-hidden="true">
+            <div class="example-browser-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="example-browser-url">Piemēra priekšskats</div>
+          </div>
+          <div class="example-browser-screen">
+            <iframe
+              id="mobile-preview-frame"
+            src="file:///D:/lapu%20meistars/examples/rigafix-blue.html"
+              title="RĪGA FIX piemēra mājaslapas priekšskats"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-layout reveal delay-2" id="marta-example">
         <div class="example-copy">
           <span class="example-label">Piemēra projekts</span>
           <h3 class="example-name">Marta's — Hair Studio</h3>
@@ -2322,7 +2245,7 @@
           <div class="example-browser-screen">
             <iframe
               id="marta-preview-frame"
-            src="file:///D:/lapu%20meistars/examples/marta-hair-studio.html"
+              src="file:///D:/lapu%20meistars/examples/marta-hair-studio.html"
               title="Marta's — Hair Studio piemēra mājaslapas priekšskats"
               loading="lazy"
             ></iframe>
@@ -2353,7 +2276,7 @@
       <div class="example-modal-screen">
         <iframe
           id="marta-full-frame"
-            src="file:///D:/lapu%20meistars/examples/marta-hair-studio.html"
+          src="file:///D:/lapu%20meistars/examples/marta-hair-studio.html"
           title="Marta's — Hair Studio pilnais piemērs"
           loading="lazy"
         ></iframe>
