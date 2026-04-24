@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lapumeistars | Pakalpojumi</title>
+  <meta
+    name="description"
+    content="Uzziniet, ko ietver Lapumeistars mājaslapas izstrāde, ko jūs saņemat sadarbībā un kā notiek process no idejas līdz publicēšanai."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="lv_LV" />
+  <meta property="og:title" content="Lapumeistars | Pakalpojumi" />
+  <meta
+    property="og:description"
+    content="Precīzāk aprakstīts, ko ietver mājaslapas izstrāde un ko jūs varat sagaidīt no sadarbības ar Lapumeistars."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #f3ede4;
+      --paper-soft: #faf6f0;
+      --surface: #fffdf9;
+      --surface-tint: #eee6db;
+      --ink: #231c16;
+      --muted: #645b52;
+      --muted-soft: #8b8073;
+      --line: #d5c8b9;
+      --accent: #294e46;
+      --accent-strong: #1a372f;
+      --accent-soft: #e6eeeb;
+      --warm: #8c6543;
+      --shadow: 0 18px 44px rgba(45, 35, 22, 0.08);
+      --danger: #a34d3d;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0)) 0 0 / 100% 180px no-repeat,
+        linear-gradient(180deg, #f7f2ea 0%, #f1ebe2 100%);
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(41, 78, 70, 0.06), transparent 20%),
+        radial-gradient(circle at 84% 12%, rgba(140, 101, 67, 0.06), transparent 16%);
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      height: 76px;
+      padding: 0 40px;
+      background: rgba(247, 242, 234, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(213, 200, 185, 0.8);
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      font-family: "Newsreader", serif;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--accent-strong);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .nav-links a[aria-current="page"] {
+      color: var(--accent-strong);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 24px rgba(35, 28, 22, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta,
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid var(--accent-strong);
+      background: var(--accent-strong);
+      color: var(--paper-soft);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.18), 0 4px 12px rgba(26, 55, 47, 0.1);
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .nav-cta:hover,
+    .nav-cta:focus-visible,
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.16), 0 8px 20px rgba(26, 55, 47, 0.16);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid rgba(41, 78, 70, 0.35);
+      background: transparent;
+      color: var(--accent-strong);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease, background 0.18s ease;
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      color: var(--accent-strong);
+      border-color: var(--accent-strong);
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid rgba(41, 78, 70, 0.18);
+      background: rgba(255, 253, 249, 0.72);
+      color: var(--accent-strong);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    nav.is-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.is-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .page-shell,
+    .contact-inner,
+    footer {
+      width: min(1240px, calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(300px, 0.96fr);
+      gap: 52px;
+      align-items: start;
+      padding: 58px 0 40px;
+    }
+
+    .eyebrow,
+    .section-flag,
+    .step-number {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .eyebrow,
+    .section-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eyebrow::before,
+    .section-flag::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: rgba(41, 78, 70, 0.35);
+    }
+
+    .hero-title,
+    .section-title,
+    .card-title,
+    .cta-title {
+      font-family: "Newsreader", serif;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .hero-title {
+      margin-top: 18px;
+      margin-bottom: 20px;
+      font-size: clamp(48px, 6vw, 78px);
+      line-height: 0.96;
+      max-width: 8.5ch;
+      text-wrap: balance;
+    }
+
+    .hero-body,
+    .section-copy,
+    .card-body,
+    .cta-copy,
+    .microcopy,
+    .step-body {
+      color: var(--muted);
+    }
+
+    .hero-body {
+      max-width: 44rem;
+      font-size: 18px;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(35, 28, 22, 0.14);
+    }
+
+    .hero-meta strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: "Newsreader", serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-meta span {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+      line-height: 1.55;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-side-card {
+      padding: 24px 24px 26px;
+      background: var(--surface);
+    }
+
+    .hero-side-card strong {
+      display: block;
+      margin: 8px 0 8px;
+      font-family: "Newsreader", serif;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-side-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .section {
+      padding: 76px 0;
+      border-top: 1px solid rgba(213, 200, 185, 0.86);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(340px, 1.08fr);
+      gap: 44px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      margin-top: 14px;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height: 0.98;
+      max-width: 12ch;
+    }
+
+    .section-copy {
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 42rem;
+    }
+
+    .service-grid,
+    .receive-grid,
+    .examples-grid,
+    .not-included-grid {
+      display: grid;
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .service-grid,
+    .receive-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .examples-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .not-included-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .info-card {
+      padding: 28px 26px 30px;
+      background: var(--surface);
+    }
+
+    .card-title {
+      margin: 8px 0 10px;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.04;
+    }
+
+    .card-body {
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .receive-list {
+      display: grid;
+      gap: 14px;
+      list-style: none;
+    }
+
+    .receive-list li {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .receive-list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-top: 0.45em;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .step-card {
+      padding: 26px 24px 28px;
+      background: var(--surface);
+    }
+
+    .step-number {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .step-card strong {
+      display: block;
+      margin-bottom: 10px;
+      font-family: "Newsreader", serif;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+    }
+
+    .step-body {
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .cta-section {
+      padding: 80px 0 32px;
+      border-top: 1px solid rgba(213, 200, 185, 0.86);
+    }
+
+    .cta-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding: 30px 30px 32px;
+      border: 1px solid rgba(41, 78, 70, 0.14);
+      background: linear-gradient(135deg, rgba(230, 238, 235, 0.48), rgba(255, 253, 249, 0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .cta-title {
+      margin: 10px 0 12px;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 0.98;
+      max-width: 13ch;
+    }
+
+    .cta-copy {
+      font-size: 17px;
+      line-height: 1.75;
+      max-width: 42rem;
+    }
+
+    .cta-copy + .cta-copy {
+      margin-top: 10px;
+    }
+
+    .contact-section {
+      padding: 44px 0 86px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel,
+    .form-panel {
+      background: var(--surface);
+      padding: 32px 30px;
+    }
+
+    .contact-panel strong {
+      display: block;
+      margin: 8px 0 10px;
+      font-family: "Newsreader", serif;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+      max-width: 30rem;
+    }
+
+    .contact-meta {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(35, 28, 22, 0.1);
+      list-style: none;
+    }
+
+    .contact-meta strong {
+      display: block;
+      margin: 0 0 4px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.4;
+    }
+
+    .contact-meta span,
+    .contact-meta a {
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid rgba(35, 28, 22, 0.08);
+      background: rgba(35, 28, 22, 0.08);
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      padding: 16px 16px 18px;
+      background: var(--paper-soft);
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-soft);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+      padding: 2px 0;
+      caret-color: var(--accent-strong);
+    }
+
+    .field textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: var(--muted-soft);
+    }
+
+    .form-panel.is-attempted input:invalid,
+    .form-panel.is-attempted select:invalid,
+    .form-panel.is-attempted textarea:invalid {
+      border-color: var(--danger);
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .microcopy {
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .form-msg {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(41, 78, 70, 0.18);
+      background: rgba(230, 238, 235, 0.5);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .form-msg.show { display: block; }
+
+    .form-msg.is-error {
+      border-color: rgba(163, 77, 61, 0.22);
+      background: rgba(163, 77, 61, 0.08);
+      color: #6f362d;
+    }
+
+    .form-msg.is-success {
+      color: var(--accent-strong);
+    }
+
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 0 34px;
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid rgba(213, 200, 185, 0.86);
+    }
+
+    .footer-brand {
+      font-family: "Newsreader", serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--accent-strong);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .section-header,
+      .cta-panel,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid,
+      .receive-grid,
+      .examples-grid,
+      .not-included-grid,
+      .step-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field-full {
+        grid-column: auto;
+      }
+
+      .hero-title,
+      .section-title,
+      .cta-title {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        height: auto;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 18px 20px;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-left: 0;
+        padding-top: 14px;
+      }
+
+      nav.is-open .nav-links {
+        display: flex;
+      }
+
+      .nav-links li,
+      .nav-links a,
+      .nav-cta {
+        width: 100%;
+      }
+
+      .page-shell,
+      .contact-inner,
+      footer {
+        width: calc(100% - 40px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell,
+      .contact-inner,
+      footer {
+        width: calc(100% - 24px);
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .section,
+      .cta-section,
+      .contact-section {
+        padding-top: 56px;
+        padding-bottom: 56px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-side-card,
+      .info-card,
+      .step-card,
+      .contact-panel,
+      .form-panel,
+      .cta-panel {
+        padding: 24px 20px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo" aria-label="Lapumeistars sākumlapa">Lapumeistars</a>
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Atvērt navigāciju"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links" id="primary-navigation">
+      <li><a href="pakalpojumi.html" aria-current="page">Pakalpojumi</a></li>
+      <li><a href="piemeri.html">Piemēri</a></li>
+      <li><a href="cenas.html">Cenas</a></li>
+      <li><a href="par-mani.html">Par mani</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Kontakti</a>
+  </nav>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="reveal">
+        <p class="eyebrow">Pakalpojumi</p>
+        <h1 class="hero-title">Pakalpojumi</h1>
+        <p class="hero-body">
+          Šeit ir precīzāk aprakstīts, ko ietver mājaslapas izstrāde un ko jūs varat sagaidīt no sadarbības.
+        </p>
+
+        <div class="hero-meta">
+          <div>
+            <strong>Individuāli</strong>
+            <span>Katrs projekts tiek veidots no nulles</span>
+          </div>
+          <div>
+            <strong>Skaidri</strong>
+            <span>Bez liekiem procesiem un neskaidrībām</span>
+          </div>
+          <div>
+            <strong>Praktiski</strong>
+            <span>Ar fokusu uz to, lai klientam ir viegli sazināties</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-side reveal delay-1">
+        <div class="hero-side-card">
+          <span class="section-flag">Sadarbības fokuss</span>
+          <strong>Mājaslapa kā skaidrs darba instruments.</strong>
+          <p>
+            Mērķis nav vienkārši “būt internetā”, bet radīt lapu, kas rada uzticību, skaidri parāda piedāvājumu un dod klientam vienkāršu nākamo soli.
+          </p>
+        </div>
+
+        <div class="hero-side-card">
+          <span class="section-flag">Rezultāts</span>
+          <strong>Paredzama sadarbība bez aģentūras stila sarežģītības.</strong>
+          <p>
+            Jūs redzat skaidru virzienu, saprotat, kas ir iekļauts, un zināt, ko sagaidīt katrā posmā.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-flag">Ko jūs saņemat</p>
+          <h2 class="section-title">Ko jūs saņemat</h2>
+        </div>
+        <p class="section-copy">
+          Praktisku pamatu uzņēmuma mājaslapai, kas ir sakārtota, uzticama un pielāgota tieši jūsu pakalpojumam, nevis universālam šablonam.
+        </p>
+      </div>
+
+      <div class="receive-grid reveal delay-1">
+        <article class="info-card">
+          <span class="section-flag">Iekļauts</span>
+          <ul class="receive-list">
+            <li><span>Individuāli izstrādātu mājaslapu, kas pielāgota jūsu uzņēmumam</span></li>
+            <li><span>Skaidru struktūru, lai klientiem būtu viegli saprast piedāvājumu</span></li>
+            <li><span>Mobilajām ierīcēm pielāgotu dizainu</span></li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <span class="section-flag">Pamats darbībai</span>
+          <ul class="receive-list">
+            <li><span>Kontaktu un pieteikšanās iespējas</span></li>
+            <li><span>Ātru ielādes laiku un tehniski sakārtotu pamatu</span></li>
+            <li><span>Loģisku izkārtojumu, ko ir viegli uzturēt un attīstīt tālāk</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-flag">Praktiski piemēri</p>
+          <h2 class="section-title">Kā tas izskatās praksē</h2>
+        </div>
+        <p class="section-copy">
+          Atkarībā no uzņēmuma veida mājaslapa tiek pielāgota konkrētām vajadzībām, nevis salikta vienādi visiem.
+        </p>
+      </div>
+
+      <div class="examples-grid reveal delay-1">
+        <article class="info-card">
+          <span class="section-flag">Frizieriem</span>
+          <h3 class="card-title">Skaidrs pieraksta virziens</h3>
+          <p class="card-body">
+            Pakalpojumu saraksts, darba laiki un rezervācijas aicinājums, lai klientam ir uzreiz skaidrs, kā pieteikties.
+          </p>
+        </article>
+        <article class="info-card">
+          <span class="section-flag">Servisiem</span>
+          <h3 class="card-title">Uzticams pirmais iespaids</h3>
+          <p class="card-body">
+            Skaidrs pakalpojumu pārskats, uzticamības elementi un kontakti, lai cilvēks ātri saprot, vai serviss ir piemērots viņa vajadzībai.
+          </p>
+        </article>
+        <article class="info-card">
+          <span class="section-flag">Viesu namiem</span>
+          <h3 class="card-title">Vizuāls iespaids un skaidrība</h3>
+          <p class="card-body">
+            Spēcīgs vizuālais tonis, informācija par piedāvājumu un rezervācijas iespējas, lai lapa palīdzētu pārvērst interesi reālā pieprasījumā.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-flag">Robežas</p>
+          <h2 class="section-title">Kas nav iekļauts</h2>
+        </div>
+        <p class="section-copy">
+          Tas ļauj saglabāt projektu skaidru un paredzamu bez liekām izmaksām.
+        </p>
+      </div>
+
+      <div class="not-included-grid reveal delay-1">
+        <article class="info-card">
+          <span class="section-flag">Nav iekļauts</span>
+          <h3 class="card-title">Pilnīga tekstu rakstīšana no nulles</h3>
+          <p class="card-body">
+            Es palīdzēšu sakārtot un uzlabot virzienu, bet pilna copywriting izstrāde nav daļa no pamata pakalpojuma.
+          </p>
+        </article>
+        <article class="info-card">
+          <span class="section-flag">Nav iekļauts</span>
+          <h3 class="card-title">Profesionāla fotosesija</h3>
+          <p class="card-body">
+            Ja vajadzīgas pilnīgi jaunas profesionālas bildes, tas ir atsevišķs pakalpojums ārpus mājaslapas izstrādes pamata apjoma.
+          </p>
+        </article>
+        <article class="info-card">
+          <span class="section-flag">Nav iekļauts</span>
+          <h3 class="card-title">Sarežģītas sistēmas vai programmatūra</h3>
+          <p class="card-body">
+            Ja projekts prasa individuālu sistēmu, sarežģītu loģiku vai plašu tehnisko izstrādi, tas jau ir cits darba formāts.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header reveal">
+        <div>
+          <p class="section-flag">Process</p>
+          <h2 class="section-title">Kā notiek sadarbība</h2>
+        </div>
+        <p class="section-copy">
+          Process ir vienkāršs un saprotams, lai jūs zinātu, kurā brīdī atrodamies un kas notiek tālāk.
+        </p>
+      </div>
+
+      <div class="step-grid reveal delay-1">
+        <article class="step-card">
+          <span class="step-number">01</span>
+          <strong>Jūs aprakstāt uzņēmumu un vajadzības</strong>
+          <p class="step-body">
+            Pietiek ar dažiem teikumiem par to, ko jūs darāt un kāda veida lapu meklējat.
+          </p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">02</span>
+          <strong>Tiek izveidots struktūras piedāvājums</strong>
+          <p class="step-body">
+            Tiek saplānots, kādām sadaļām jābūt lapā un kā klientam būs visvieglāk uztvert piedāvājumu.
+          </p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">03</span>
+          <strong>Notiek izstrāde un pielāgošana</strong>
+          <p class="step-body">
+            Lapa tiek izveidota un pielāgota jūsu uzņēmuma vajadzībām, tonim un mērķim.
+          </p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">04</span>
+          <strong>Mājaslapa tiek publicēta</strong>
+          <p class="step-body">
+            Kad viss ir saskaņots, lapa tiek sagatavota publicēšanai un kļūst pieejama jūsu klientiem.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <section class="cta-section">
+    <div class="page-shell">
+      <div class="cta-panel reveal">
+        <div>
+          <p class="section-flag">CTA</p>
+          <h2 class="cta-title">Ja jums ir konkrēts projekts - sazinieties.</h2>
+          <p class="cta-copy">
+            Katrs projekts tiek veidots no nulles - nevis balstīts uz gataviem šabloniem.
+          </p>
+          <p class="cta-copy">
+            Ja vēlaties saprast, kā tas izskatītos tieši jūsu uzņēmumam, nākamais solis ir īsa ziņa.
+          </p>
+        </div>
+        <div>
+          <a href="#contact" class="btn-primary">Pāriet uz formu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-grid reveal">
+        <div class="contact-panel">
+          <span class="section-flag">Sazināties</span>
+          <strong>Pastāstiet īsi par savu projektu.</strong>
+          <p>
+            Aprakstiet, ko jūs darāt un kādu mājaslapu meklējat. Ar to pietiek, lai varētu ieteikt skaidru nākamo soli.
+          </p>
+
+          <ul class="contact-meta">
+            <li>
+              <strong>Parasti atbildu</strong>
+              <span>Vienas darba dienas laikā</span>
+            </li>
+            <li>
+              <strong>E-pasts</strong>
+              <a href="mailto:sveiki@lapumeistars.lv">sveiki@lapumeistars.lv</a>
+            </li>
+            <li>
+              <strong>Piemērots</strong>
+              <span>Vietējiem uzņēmumiem, kuriem vajag skaidru un uzticamu uzņēmuma lapu</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-panel" id="form-panel">
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/your-form-id"
+            method="POST"
+            novalidate
+          >
+            <input class="hp-field" id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Jūsu vārds</label>
+                <input id="name" name="name" type="text" placeholder="Jūsu vārds" required />
+              </div>
+
+              <div class="field">
+                <label for="email">E-pasts</label>
+                <input id="email" name="email" type="email" placeholder="jusu@epasts.lv" required />
+              </div>
+
+              <div class="field">
+                <label for="business-type">Uzņēmuma veids</label>
+                <select id="business-type" name="business_type" required>
+                  <option value="">Izvēlieties...</option>
+                  <option>Amatniecība / Mājas pakalpojumi</option>
+                  <option>Salons / Skaistumkopšana</option>
+                  <option>Kafejnīca / Restorāns</option>
+                  <option>Viesu nams / Apartamenti</option>
+                  <option>Autoserviss / Remonts</option>
+                  <option>Vietējais veikals</option>
+                  <option>Profesionāli pakalpojumi</option>
+                  <option>Cits</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="scope">Kas jums ir vajadzīgs?</label>
+                <select id="scope" name="scope" required>
+                  <option value="">Izvēlieties...</option>
+                  <option>Jauna mājaslapa</option>
+                  <option>Esošās lapas atjaunošana</option>
+                  <option>Vairāku lapu uzņēmuma lapa</option>
+                  <option>Lapa klientu pieprasījumiem</option>
+                  <option>Nezinu vēl precīzi</option>
+                </select>
+              </div>
+
+              <div class="field field-full">
+                <label for="message">Īsi par projektu</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Aprakstiet, ko jūs darāt un kāda tipa mājaslapu meklējat."
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <div>
+                <button class="btn-primary" id="contact-submit" type="submit">Nosūtīt pieteikumu</button>
+                <div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
+              </div>
+              <p class="microcopy">Aizņem apmēram 1 minūti</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">Lapumeistars</span>
+    <div class="footer-links">
+      <a href="pakalpojumi.html">Pakalpojumi</a>
+      <a href="piemeri.html">Piemēri</a>
+      <a href="cenas.html">Cenas</a>
+      <a href="par-mani.html">Par mani</a>
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const siteNav = document.querySelector("nav");
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelectorAll(".nav-links a, .nav-cta");
+    const contactForm = document.getElementById("contact-form");
+    const formPanel = document.getElementById("form-panel");
+    const formMsg = document.getElementById("form-msg");
+    const contactSubmit = document.getElementById("contact-submit");
+    const honeypotField = document.getElementById("f-website");
+    const formspreeEndpoint = String(contactForm?.getAttribute("action") ?? "").trim();
+
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      revealElements.forEach((element) => element.classList.add("visible"));
+    } else {
+      const observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -8% 0px"
+        }
+      );
+
+      revealElements.forEach((element) => observer.observe(element));
+    }
+
+    function closeNav() {
+      if (!siteNav || !navToggle) {
+        return;
+      }
+
+      siteNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Atvērt navigāciju");
+    }
+
+    navToggle?.addEventListener("click", () => {
+      const isOpen = !siteNav.classList.contains("is-open");
+      siteNav.classList.toggle("is-open", isOpen);
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+      navToggle.setAttribute("aria-label", isOpen ? "Aizvērt navigāciju" : "Atvērt navigāciju");
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 900) {
+          closeNav();
+        }
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        closeNav();
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!siteNav?.classList.contains("is-open")) {
+        return;
+      }
+
+      if (navToggle?.contains(event.target)) {
+        return;
+      }
+
+      if (!siteNav.contains(event.target)) {
+        closeNav();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && siteNav?.classList.contains("is-open")) {
+        closeNav();
+      }
+    });
+
+    function hasWorkingFormspreeEndpoint() {
+      return /^https:\/\/formspree\.io\/f\/[a-z0-9]+$/i.test(formspreeEndpoint);
+    }
+
+    async function readErrorMessage(response) {
+      try {
+        const payload = await response.json();
+        if (Array.isArray(payload?.errors) && payload.errors.length > 0) {
+          return payload.errors.map((item) => item.message).filter(Boolean).join(" ");
+        }
+
+        return payload?.message || payload?.error?.message || payload?.hint || response.statusText;
+      } catch {
+        return response.statusText;
+      }
+    }
+
+    function setFormFeedback(message, type) {
+      if (!formMsg) {
+        return;
+      }
+
+      formMsg.textContent = message;
+      formMsg.className = "form-msg show " + (type === "error" ? "is-error" : "is-success");
+    }
+
+    function setSubmitting(isSubmitting) {
+      if (!contactSubmit) {
+        return;
+      }
+
+      contactSubmit.disabled = isSubmitting;
+      contactSubmit.textContent = isSubmitting ? "Nosūta..." : "Nosūtīt pieteikumu";
+      contactSubmit.setAttribute("aria-busy", String(isSubmitting));
+    }
+
+    async function submitForm(event) {
+      event.preventDefault();
+
+      if (!contactForm || !formPanel) {
+        return;
+      }
+
+      formPanel.classList.add("is-attempted");
+
+      if (!contactForm.reportValidity()) {
+        return;
+      }
+
+      if (honeypotField && honeypotField.value.trim()) {
+        contactForm.reset();
+        formPanel.classList.remove("is-attempted");
+        setFormFeedback("Paldies. Ziņa ir saņemta.", "success");
+        return;
+      }
+
+      if (!hasWorkingFormspreeEndpoint()) {
+        setFormFeedback("Lai forma tiešām nosūtītu pieteikumus, jāievieto derīgs Formspree endpoint.", "error");
+        return;
+      }
+
+      const formData = new FormData(contactForm);
+      setSubmitting(true);
+
+      try {
+        const response = await fetch(formspreeEndpoint, {
+          method: "POST",
+          headers: {
+            Accept: "application/json"
+          },
+          body: formData
+        });
+
+        if (!response.ok) {
+          throw new Error(await readErrorMessage(response));
+        }
+
+        contactForm.reset();
+        formPanel.classList.remove("is-attempted");
+        setFormFeedback("Paldies. Pieteikums ir nosūtīts, un atbildēšu ar nākamo soli.", "success");
+      } catch (error) {
+        console.warn("Contact form submit failed.", error);
+        setFormFeedback("Neizdevās nosūtīt pieteikumu. Lūdzu, mēģiniet vēlreiz pēc brīža.", "error");
+      } finally {
+        setSubmitting(false);
+      }
+    }
+
+    contactForm?.addEventListener("submit", submitForm);
+  </script>
+</body>
+</html>
