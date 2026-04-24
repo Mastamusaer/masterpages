@@ -465,6 +465,10 @@
       margin-left: auto;
     }
 
+    .hero-side-actions {
+      margin-top: 18px;
+    }
+
     .hero-side-title {
       font-size: 13px;
       font-weight: 800;
@@ -2065,20 +2069,6 @@
             <span>Tie parāda virzienu un kvalitāti, ko pielāgoju jūsu uzņēmuma vajadzībām, nevis vienkārši nokopēju.</span>
           </div>
         </div>
-        <div class="hero-meta">
-          <div>
-            <strong>2</strong>
-            <span>Dzīvi piemēri vienā vietā</span>
-          </div>
-          <div>
-            <strong>100%</strong>
-            <span>Pielāgoti mobilajām ierīcēm</span>
-          </div>
-          <div>
-            <strong>1</strong>
-            <span>Skaidra nākamā darbība</span>
-          </div>
-        </div>
       </div>
 
       <aside class="hero-side reveal delay-1">
@@ -2099,8 +2089,40 @@
             ></iframe>
           </div>
         </div>
+        <div class="example-actions hero-side-actions">
+          <button type="button" class="btn-primary" data-open-mechanic-example>Atvērt pilno piemēru</button>
+        </div>
       </aside>
     </section>
+  </div>
+
+  <div class="example-modal" id="mechanic-full-example" hidden aria-hidden="true">
+    <div class="example-modal-panel" role="dialog" aria-modal="true" aria-labelledby="mechanic-full-example-title">
+      <div class="example-modal-toolbar" aria-hidden="true">
+        <div class="example-browser-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="example-browser-url">Pilnais piemērs</div>
+        <button type="button" class="example-modal-close" data-close-mechanic-example>Aizvērt</button>
+      </div>
+      <div class="example-modal-head">
+        <div class="example-modal-head-copy">
+          <span class="example-label">Pilnais piemērs</span>
+          <h3 class="example-name" id="mechanic-full-example-title">Jūsu logo autoservisa mājaslapa</h3>
+        </div>
+        <p class="example-modal-note">Autoservisa piemērs ar skaidru pirmo bloku, pakalpojumu sadalījumu un vietējiem kontaktiem Rīgā un Ventspilī.</p>
+      </div>
+      <div class="example-modal-screen">
+        <iframe
+          id="mechanic-full-frame"
+          src="mechanic-shop.html"
+          title="Jūsu logo autoservisa pilnais piemērs"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
   </div>
 
   <div class="example-modal" id="mobile-full-example" hidden aria-hidden="true">
@@ -2325,6 +2347,9 @@
     const siteNav = document.querySelector('nav');
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelectorAll('.nav-links a, .nav-cta');
+    const mechanicFullModal = document.getElementById('mechanic-full-example');
+    const mechanicExampleTriggers = document.querySelectorAll('[data-open-mechanic-example]');
+    const mechanicExampleClose = document.querySelector('[data-close-mechanic-example]');
     const mobileFullModal = document.getElementById('mobile-full-example');
     const mobileExampleTriggers = document.querySelectorAll('[data-open-mobile-example]');
     const mobileExampleClose = document.querySelector('[data-close-mobile-example]');
@@ -2430,6 +2455,13 @@
       }, 180);
     }
 
+    mechanicExampleTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal(mechanicFullModal, trigger, mechanicExampleClose);
+      });
+    });
+
     mobileExampleTriggers.forEach((trigger) => {
       trigger.addEventListener('click', (event) => {
         event.preventDefault();
@@ -2444,8 +2476,15 @@
       });
     });
 
+    mechanicExampleClose?.addEventListener('click', () => closeModal(mechanicFullModal));
     mobileExampleClose?.addEventListener('click', () => closeModal(mobileFullModal));
     martaExampleClose?.addEventListener('click', () => closeModal(martaFullModal));
+
+    mechanicFullModal?.addEventListener('click', (event) => {
+      if (event.target === mechanicFullModal) {
+        closeModal(mechanicFullModal);
+      }
+    });
 
     mobileFullModal?.addEventListener('click', (event) => {
       if (event.target === mobileFullModal) {
@@ -2461,6 +2500,11 @@
 
     document.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape') {
+        return;
+      }
+
+      if (mechanicFullModal && !mechanicFullModal.hidden) {
+        closeModal(mechanicFullModal);
         return;
       }
 
