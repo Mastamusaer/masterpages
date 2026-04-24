@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RĪGA FIX | Telefonu remonts Rīgā</title>
+<meta
+  name="description"
+  content="RĪGA FIX piedāvā ekrāna maiņu, baterijas maiņu, uzlādes porta remontu un diagnostiku Apple, Samsung un Xiaomi telefoniem Rīgā ar skaidru cenu pirms remonta."
+>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #071524;
+    --navy-deep: #04101d;
+    --navy-soft: #0d1f33;
+    --blue: #1195f5;
+    --blue-dark: #0a79ca;
+    --white: #ffffff;
+    --paper: #f5f7fb;
+    --line: #d9e1ec;
+    --text: #0d1726;
+    --muted: #5e6c80;
+    --success: #0e8b57;
+    --radius: 18px;
+    --shadow: 0 18px 50px rgba(7, 21, 36, 0.12);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button,
+  select {
+    cursor: pointer;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
+
+  .wrap {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: rgba(7, 21, 36, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+  }
+
+  .header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 76px;
+  }
+
+  .brand {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 0.95;
+  }
+
+  .brand strong {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .brand strong span {
+    color: var(--blue);
+  }
+
+  .brand small {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+    text-transform: uppercase;
+  }
+
+  .main-nav a {
+    padding: 1.75rem 0;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.18s ease, color 0.18s ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a:first-child {
+    border-color: var(--blue);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .phone-box {
+    display: grid;
+    gap: 0.1rem;
+    color: var(--white);
+    text-align: left;
+  }
+
+  .phone-box strong {
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .phone-box span {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.74);
+    text-transform: uppercase;
+  }
+
+  .header-cta,
+  .hero-primary,
+  .hero-secondary,
+  .form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0.95rem 1.3rem;
+    border: none;
+    border-radius: 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .header-cta,
+  .hero-primary,
+  .form-submit {
+    background: var(--blue);
+    color: var(--white);
+  }
+
+  .hero-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.58);
+  }
+
+  .hero {
+    background: var(--navy-deep);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.16fr);
+    align-items: stretch;
+  }
+
+  .hero-copy {
+    padding: 3.5rem 0 3rem;
+    color: var(--white);
+  }
+
+  .hero-copy-inner {
+    max-width: 560px;
+    padding-right: 1.5rem;
+  }
+
+  .hero-title {
+    margin-bottom: 1rem;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(3.4rem, 7vw, 5.9rem);
+    line-height: 0.9;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-title span {
+    color: var(--blue);
+  }
+
+  .hero-copy p {
+    max-width: 44ch;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .hero-points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.7rem;
+  }
+
+  .hero-point {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 0.7rem;
+    align-items: center;
+  }
+
+  .hero-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .hero-point strong {
+    display: block;
+    margin-bottom: 0.18rem;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .hero-point span {
+    display: block;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 0.85rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .hero-media {
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+  }
+
+  .hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(4, 16, 29, 0.78) 0%, rgba(4, 16, 29, 0.16) 30%, rgba(4, 16, 29, 0.06) 55%),
+      linear-gradient(180deg, rgba(7, 21, 36, 0.12), rgba(7, 21, 36, 0.32));
+  }
+
+  .section {
+    padding: 1.6rem 0;
+  }
+
+  .section-title {
+    margin-bottom: 1.1rem;
+    text-align: center;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.25rem);
+    line-height: 0.95;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+  }
+
+  .section-copy {
+    max-width: 70ch;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+    color: var(--muted);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .service-card {
+    padding: 1.35rem 1rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+
+  .service-card strong {
+    display: block;
+    margin: 0.85rem 0 0.5rem;
+    font-size: 1.02rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .service-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .service-mark {
+    width: 54px;
+    height: 54px;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    border: 2px solid rgba(7, 21, 36, 0.12);
+    border-radius: 14px;
+    color: var(--navy);
+    font-size: 1.45rem;
+    font-weight: 800;
+  }
+
+  .pricing-panel {
+    padding: 1.4rem;
+    background: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+  .brand-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 1rem;
+  }
+
+  .brand-tab {
+    min-width: 140px;
+    min-height: 52px;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid var(--line);
+    background: #eef3f8;
+    color: var(--text);
+    font-weight: 800;
+  }
+
+  .brand-tab.is-active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+  }
+
+  .lookup-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .field label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .field select,
+  .field input,
+  .field textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 0.9rem 0.95rem;
+    border: 1px solid #cfd8e5;
+    background: var(--white);
+    color: var(--text);
+  }
+
+  .field select:disabled {
+    opacity: 0.72;
+    cursor: not-allowed;
+    background: #f3f6fa;
+  }
+
+  textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+
+  .price-result {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .result-price,
+  .result-meta {
+    padding: 1rem;
+    border: 1px solid var(--line);
+    background: #f7fafe;
+  }
+
+  .result-price small,
+  .result-meta small {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .result-price strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 0.9;
+    color: var(--blue);
+    text-transform: uppercase;
+  }
+
+  .result-price p,
+  .result-meta p {
+    color: var(--muted);
+  }
+
+  .result-meta strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 1.05rem;
+  }
+
+  .price-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 0.85rem;
+  }
+
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+
+  .price-table th,
+  .price-table td {
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--line);
+    text-align: left;
+  }
+
+  .price-table thead th {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.92rem;
+    font-weight: 800;
+  }
+
+  .price-table tbody tr:nth-child(even) td {
+    background: #f8fbff;
+  }
+
+  .price-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .trust-strip {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .trust-strip .wrap {
+    padding: 1.5rem 0;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .trust-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 0.7rem;
+    align-items: start;
+  }
+
+  .trust-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 2px solid rgba(17, 149, 245, 0.78);
+    color: var(--blue);
+    font-weight: 800;
+  }
+
+  .trust-item strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .trust-item p {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.87rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr) minmax(0, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    background: var(--white);
+    box-shadow: var(--shadow);
+  }
+
+  .contact-panel,
+  .contact-map,
+  .contact-form {
+    min-height: 100%;
+  }
+
+  .contact-panel {
+    padding: 1.4rem;
+    border-right: 1px solid var(--line);
+  }
+
+  .contact-panel h3,
+  .contact-form h3 {
+    margin-bottom: 1rem;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 2rem;
+    line-height: 0.95;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .contact-block {
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-block strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 1rem;
+  }
+
+  .contact-block p,
+  .contact-block a,
+  .contact-block span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .contact-map {
+    border-right: 1px solid var(--line);
+    background: #dfe9f5;
+  }
+
+  .contact-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border: 0;
+    filter: grayscale(1) saturate(0) contrast(1.1);
+  }
+
+  .contact-form {
+    padding: 1.4rem;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .form-grid .field:last-child,
+  .form-grid .field:nth-last-child(2) {
+    grid-column: span 2;
+  }
+
+  .form-actions {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .form-submit {
+    width: 180px;
+  }
+
+  .form-note,
+  .form-status {
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .form-status {
+    min-height: 1.25rem;
+  }
+
+  .site-footer {
+    padding: 1.3rem 0 2.2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 1120px) {
+    .header-bar,
+    .hero-grid,
+    .service-grid,
+    .trust-grid,
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .header-bar {
+      display: grid;
+      padding: 1rem 0;
+    }
+
+    .main-nav {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .main-nav a {
+      padding: 0;
+    }
+
+    .hero-copy {
+      padding-bottom: 2rem;
+    }
+
+    .hero-copy-inner {
+      padding-right: 0;
+    }
+
+    .hero-media {
+      min-height: 420px;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .contact-panel,
+    .contact-map {
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .hero-points,
+    .lookup-fields,
+    .price-result,
+    .form-grid,
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .header-actions {
+      flex-wrap: wrap;
+    }
+
+    .brand-tabs {
+      flex-wrap: wrap;
+    }
+
+    .brand-tab {
+      flex: 1 1 100%;
+    }
+
+    .hero-copy {
+      padding-top: 2.2rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.7rem, 12vw, 4.6rem);
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .form-submit {
+      width: 100%;
+    }
+
+    .wrap {
+      width: calc(100% - 24px);
+    }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-bar">
+      <a class="brand" href="#sakums">
+        <strong>RĪGA <span>FIX</span></strong>
+        <small>TELEFONU REMONTS</small>
+      </a>
+
+      <nav class="main-nav" aria-label="Galvenā navigācija">
+        <a href="#sakums">Sākums</a>
+        <a href="#pakalpojumi">Pakalpojumi</a>
+        <a href="#cenas">Cenas</a>
+        <a href="#par-mums">Par mums</a>
+        <a href="#kontakti">Kontakti</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="phone-box" href="tel:+37125736341">
+          <strong>+371 25 736 341</strong>
+          <span>Zvaniet vai rakstiet</span>
+        </a>
+        <a class="header-cta" href="#kontakti">Sazināties</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="sakums">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-copy-inner">
+            <h1 class="hero-title">Ātrs un uzticams <span>telefonu remonts Rīgā</span></h1>
+            <p>Ekrāna maiņa, baterijas nomaiņa, uzlādes porta remonts, diagnostika un citi remontdarbi Apple, Samsung un Xiaomi ierīcēm ar skaidru cenu pirms darba.</p>
+
+            <div class="hero-points">
+              <div class="hero-point">
+                <div class="hero-icon">A</div>
+                <div>
+                  <strong>Ātri</strong>
+                  <span>Populāri remonti 30-180 min</span>
+                </div>
+              </div>
+              <div class="hero-point">
+                <div class="hero-icon">G</div>
+                <div>
+                  <strong>Garantija</strong>
+                  <span>Līdz 6 mēnešiem darbam</span>
+                </div>
+              </div>
+              <div class="hero-point">
+                <div class="hero-icon">K</div>
+                <div>
+                  <strong>Kvalitāte</strong>
+                  <span>Pārbaudītas detaļas un tests</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a class="hero-primary" href="#cenas">Skatīt cenas</a>
+              <a class="hero-secondary" href="#kontakti">Sazināties</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img
+            src="https://images.pexels.com/photos/6755071/pexels-photo-6755071.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Atvērts telefons uz remonta darba galda"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pakalpojumi">
+    <div class="wrap">
+      <h2 class="section-title">Mūsu pakalpojumi</h2>
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-mark">E</div>
+          <strong>Ekrāna maiņa</strong>
+          <p>Plīsis ekrāns, melns attēls vai skāriena problēmas.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-mark">B</div>
+          <strong>Baterijas nomaiņa</strong>
+          <p>Ātra izlāde, pārkaršana un īss darbības laiks.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-mark">U</div>
+          <strong>Uzlādes porta remonts</strong>
+          <p>Nelādējas vai kabelis kontaktējas tikai noteiktā leņķī.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-mark">D</div>
+          <strong>Diagnostika</strong>
+          <p>Problēmas noteikšana un remonta cenas saskaņošana pirms darba.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-mark">C</div>
+          <strong>Citi remontdarbi</strong>
+          <p>Kameras stikls, skaļrunis, mikrofons, pogas un citi mezgli.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cenas">
+    <div class="wrap">
+      <h2 class="section-title">Cenas pēc modeļa</h2>
+      <p class="section-copy">Izvēlieties marku, modeli un remonta veidu. Cenu meklētājs darbojas uzreiz lapā un palīdz ātri atrast orientējošo summu.</p>
+
+      <div class="pricing-panel">
+        <div class="brand-tabs" role="tablist" aria-label="Marku filtri">
+          <button class="brand-tab is-active" type="button" data-brand-tab="Apple">Apple</button>
+          <button class="brand-tab" type="button" data-brand-tab="Samsung">Samsung</button>
+          <button class="brand-tab" type="button" data-brand-tab="Xiaomi">Xiaomi</button>
+        </div>
+
+        <div class="lookup-fields">
+          <div class="field">
+            <label for="brandSelect">Marka</label>
+            <select id="brandSelect">
+              <option value="">Izvēlieties marku</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="modelSelect">Modelis</label>
+            <select id="modelSelect" disabled>
+              <option value="">Vispirms izvēlieties marku</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="repairSelect">Remonta veids</label>
+            <select id="repairSelect" disabled>
+              <option value="">Vispirms izvēlieties modeli</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="price-result" aria-live="polite">
+          <div class="result-price">
+            <small>Remonta cena</small>
+            <strong id="priceValue">Izvēlieties modeli</strong>
+            <p id="priceSummary">Izvēlieties marku, modeli un remonta veidu, lai redzētu orientējošo remonta cenu.</p>
+          </div>
+          <div class="result-meta">
+            <small>Informācija</small>
+            <strong id="repairTime">Laiks tiks parādīts šeit</strong>
+            <p id="repairNote">Cenā ietilpst detaļas uzstādīšana, gala pārbaude un darba garantija.</p>
+          </div>
+        </div>
+
+        <div class="price-table-wrap">
+          <table class="price-table" aria-label="Populārāko modeļu cenu tabula">
+            <thead>
+              <tr>
+                <th>Modelis</th>
+                <th>Ekrāna maiņa</th>
+                <th>Baterijas maiņa</th>
+                <th>Uzlādes porta remonts</th>
+              </tr>
+            </thead>
+            <tbody id="featuredPriceBody"></tbody>
+          </table>
+        </div>
+
+        <p class="price-note">Ja jūsu modelis nav sarakstā, sazinieties ar mums precīzai cenai.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip" id="par-mums">
+    <div class="wrap">
+      <h2 class="section-title">Kāpēc izvēlēties mūs?</h2>
+      <div class="trust-grid">
+        <article class="trust-item">
+          <div class="trust-icon">1</div>
+          <div>
+            <strong>Ātrs izpildes laiks</strong>
+            <p>Biežākie remonti tiek veikti vienas dienas laikā.</p>
+          </div>
+        </article>
+        <article class="trust-item">
+          <div class="trust-icon">2</div>
+          <div>
+            <strong>Kvalitatīvas detaļas</strong>
+            <p>Izmantojam pārbaudītas kvalitātes detaļas populārākajiem modeļiem.</p>
+          </div>
+        </article>
+        <article class="trust-item">
+          <div class="trust-icon">3</div>
+          <div>
+            <strong>Garantija darbam</strong>
+            <p>Līdz 6 mēnešiem remontdarbiem un uzstādītajām detaļām.</p>
+          </div>
+        </article>
+        <article class="trust-item">
+          <div class="trust-icon">4</div>
+          <div>
+            <strong>Skaidras cenas</strong>
+            <p>Bez slēptām izmaksām un bez neskaidrībām pēc remonta.</p>
+          </div>
+        </article>
+        <article class="trust-item">
+          <div class="trust-icon">5</div>
+          <div>
+            <strong>Praktiska palīdzība</strong>
+            <p>Paskaidrojam bojājumu un ieteicam saprātīgāko risinājumu.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kontakti">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-panel">
+          <h3>Kontakti</h3>
+
+          <div class="contact-block">
+            <strong>Adrese</strong>
+            <span>Rīga, Matīsa iela 30</span>
+            <span>P.-C. 10:00-19:00, Pk. 10:00-18:00</span>
+            <span>Sest. 10:00-15:00, Sv. slēgts</span>
+          </div>
+
+          <div class="contact-block">
+            <strong>Tālrunis</strong>
+            <a href="tel:+37125736341">+371 25 736 341</a>
+          </div>
+
+          <div class="contact-block">
+            <strong>E-pasts</strong>
+            <a href="mailto:repair@rigafix.lv">repair@rigafix.lv</a>
+          </div>
+        </div>
+
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps?q=Mat%C4%ABsa%20iela%2030%2C%20R%C4%ABga&output=embed"
+            title="RĪGA FIX atrašanās vieta Matīsa ielā 30"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div class="contact-form">
+          <h3>Uzrakstiet mums</h3>
+          <form id="repairForm" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Vārds</label>
+                <input id="name" name="name" type="text" placeholder="Vārds" required>
+              </div>
+
+              <div class="field">
+                <label for="phone">Tālruņa numurs</label>
+                <input id="phone" name="phone" type="tel" placeholder="Tālruņa numurs" required>
+              </div>
+
+              <div class="field">
+                <label for="email">E-pasts</label>
+                <input id="email" name="email" type="email" placeholder="E-pasts">
+              </div>
+
+              <div class="field">
+                <label for="brandField">Ierīces marka</label>
+                <select id="brandField" name="brand" required>
+                  <option value="">Izvēlieties marku</option>
+                  <option>Apple</option>
+                  <option>Samsung</option>
+                  <option>Xiaomi</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="modelField">Ierīces modelis</label>
+                <input id="modelField" name="model" type="text" placeholder="Ierīces modelis" required>
+              </div>
+
+              <div class="field">
+                <label for="problemField">Problēma</label>
+                <select id="problemField" name="problem" required>
+                  <option value="">Izvēlieties problēmu</option>
+                  <option>Ekrāns saplaisājis vai nestrādā</option>
+                  <option>Baterija ātri izlādējas</option>
+                  <option>Telefons nelādējas</option>
+                  <option>Kameras stikls bojāts</option>
+                  <option>Cits bojājums</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="message">Ziņa</label>
+                <textarea id="message" name="message" placeholder="Problēmas apraksts"></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="form-submit" type="submit">Nosūtīt</button>
+              <p class="form-note">Ja modeli atradāt cenu meklētājā, forma tiks aizpildīta automātiski.</p>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 RĪGA FIX. Telefonu remonts Rīgā.</span>
+  </div>
+</footer>
+
+<script>
+  const repairTypes = {
+    screen: { label: "Ekrāna maiņa", time: "Parasti 60-180 min", note: "Cenā ietilpst ekrāna maiņa, montāža un gala tests." },
+    battery: { label: "Baterijas maiņa", time: "Parasti 45-90 min", note: "Pēc maiņas pārbaudām uzlādi, baterijas darbību un stabilitāti." },
+    port: { label: "Uzlādes porta remonts", time: "Parasti 60-150 min", note: "Pārbaudām portu, kontaktus un pieslēguma stabilitāti pēc remonta." },
+    camera: { label: "Kameras stikla maiņa", time: "Parasti 30-60 min", note: "Pārbaudām, vai kamera nav bojāta un vai fokusēšana darbojas korekti." }
+  };
+
+  const catalog = {
+    Apple: [
+      { model: "iPhone X", prices: { screen: 129, battery: 59, port: 69, camera: 39 } },
+      { model: "iPhone XR", prices: { screen: 139, battery: 59, port: 69, camera: 39 } },
+      { model: "iPhone XS", prices: { screen: 149, battery: 69, port: 79, camera: 39 } },
+      { model: "iPhone XS Max", prices: { screen: 169, battery: 69, port: 79, camera: 49 } },
+      { model: "iPhone 11", prices: { screen: 149, battery: 69, port: 79, camera: 39 } },
+      { model: "iPhone 11 Pro", prices: { screen: 189, battery: 79, port: 89, camera: 49 } },
+      { model: "iPhone 11 Pro Max", prices: { screen: 209, battery: 79, port: 89, camera: 49 } },
+      { model: "iPhone 12 mini", prices: { screen: 179, battery: 79, port: 89, camera: 49 } },
+      { model: "iPhone 12", prices: { screen: 199, battery: 79, port: 89, camera: 49 } },
+      { model: "iPhone 12 Pro", prices: { screen: 219, battery: 89, port: 99, camera: 59 } },
+      { model: "iPhone 12 Pro Max", prices: { screen: 249, battery: 89, port: 99, camera: 59 } },
+      { model: "iPhone 13 mini", prices: { screen: 199, battery: 89, port: 99, camera: 59 } },
+      { model: "iPhone 13", prices: { screen: 229, battery: 89, port: 99, camera: 59 } },
+      { model: "iPhone 13 Pro", prices: { screen: 279, battery: 99, port: 109, camera: 69 } },
+      { model: "iPhone 13 Pro Max", prices: { screen: 299, battery: 99, port: 109, camera: 69 } },
+      { model: "iPhone 14", prices: { screen: 259, battery: 99, port: 109, camera: 69 } },
+      { model: "iPhone 14 Plus", prices: { screen: 279, battery: 109, port: 119, camera: 79 } },
+      { model: "iPhone 14 Pro", prices: { screen: 339, battery: 109, port: 119, camera: 79 } },
+      { model: "iPhone 14 Pro Max", prices: { screen: 369, battery: 119, port: 129, camera: 89 } },
+      { model: "iPhone 15", prices: { screen: 299, battery: 119, port: 129, camera: 79 } },
+      { model: "iPhone 15 Plus", prices: { screen: 319, battery: 119, port: 129, camera: 89 } },
+      { model: "iPhone 15 Pro", prices: { screen: 389, battery: 129, port: 139, camera: 99 } },
+      { model: "iPhone 15 Pro Max", prices: { screen: 419, battery: 129, port: 139, camera: 109 } },
+      { model: "iPhone 16", prices: { screen: 329, battery: 129, port: 139, camera: 89 } },
+      { model: "iPhone 16 Plus", prices: { screen: 349, battery: 129, port: 139, camera: 99 } },
+      { model: "iPhone 16 Pro", prices: { screen: 429, battery: 139, port: 149, camera: 109 } },
+      { model: "iPhone 16 Pro Max", prices: { screen: 459, battery: 139, port: 149, camera: 119 } },
+      { model: "iPhone 17", prices: { screen: 359, battery: 139, port: 149, camera: 99 } },
+      { model: "iPhone 17 Plus", prices: { screen: 379, battery: 149, port: 159, camera: 109 } },
+      { model: "iPhone 17 Pro", prices: { screen: 469, battery: 149, port: 159, camera: 119 } },
+      { model: "iPhone 17 Pro Max", prices: { screen: 499, battery: 159, port: 169, camera: 129 } }
+    ],
+    Samsung: [
+      { model: "Galaxy S20", prices: { screen: 219, battery: 69, port: 79, camera: 49 } },
+      { model: "Galaxy S20+", prices: { screen: 249, battery: 79, port: 89, camera: 59 } },
+      { model: "Galaxy S20 Ultra", prices: { screen: 289, battery: 89, port: 99, camera: 69 } },
+      { model: "Galaxy Note20 Ultra", prices: { screen: 299, battery: 89, port: 99, camera: 69 } },
+      { model: "Galaxy S21", prices: { screen: 229, battery: 79, port: 89, camera: 59 } },
+      { model: "Galaxy S21+", prices: { screen: 259, battery: 89, port: 99, camera: 69 } },
+      { model: "Galaxy S21 Ultra", prices: { screen: 319, battery: 99, port: 109, camera: 79 } },
+      { model: "Galaxy S22", prices: { screen: 239, battery: 79, port: 89, camera: 59 } },
+      { model: "Galaxy S22+", prices: { screen: 279, battery: 89, port: 99, camera: 69 } },
+      { model: "Galaxy S22 Ultra", prices: { screen: 339, battery: 99, port: 109, camera: 79 } },
+      { model: "Galaxy S23", prices: { screen: 259, battery: 89, port: 99, camera: 69 } },
+      { model: "Galaxy S23+", prices: { screen: 299, battery: 99, port: 109, camera: 79 } },
+      { model: "Galaxy S23 Ultra", prices: { screen: 389, battery: 109, port: 119, camera: 89 } },
+      { model: "Galaxy S24", prices: { screen: 289, battery: 99, port: 109, camera: 79 } },
+      { model: "Galaxy S24+", prices: { screen: 329, battery: 109, port: 119, camera: 89 } },
+      { model: "Galaxy S24 Ultra", prices: { screen: 429, battery: 119, port: 129, camera: 99 } },
+      { model: "Galaxy S25", prices: { screen: 309, battery: 109, port: 119, camera: 89 } },
+      { model: "Galaxy S25+", prices: { screen: 349, battery: 119, port: 129, camera: 99 } },
+      { model: "Galaxy S25 Ultra", prices: { screen: 449, battery: 129, port: 139, camera: 109 } },
+      { model: "Galaxy Z Flip4", prices: { screen: 349, battery: 99, port: 119, camera: 79 } },
+      { model: "Galaxy Z Flip5", prices: { screen: 379, battery: 109, port: 129, camera: 89 } },
+      { model: "Galaxy Z Flip6", prices: { screen: 409, battery: 119, port: 139, camera: 99 } },
+      { model: "Galaxy Z Fold4", prices: { screen: 549, battery: 129, port: 159, camera: 99 } },
+      { model: "Galaxy Z Fold5", prices: { screen: 589, battery: 139, port: 169, camera: 109 } },
+      { model: "Galaxy Z Fold6", prices: { screen: 629, battery: 149, port: 179, camera: 119 } }
+    ],
+    Xiaomi: [
+      { model: "Mi 11", prices: { screen: 199, battery: 69, port: 79, camera: 49 } },
+      { model: "11T Pro", prices: { screen: 219, battery: 79, port: 89, camera: 59 } },
+      { model: "12", prices: { screen: 229, battery: 79, port: 89, camera: 59 } },
+      { model: "12 Pro", prices: { screen: 269, battery: 89, port: 99, camera: 69 } },
+      { model: "12T Pro", prices: { screen: 249, battery: 89, port: 99, camera: 69 } },
+      { model: "13", prices: { screen: 259, battery: 89, port: 99, camera: 69 } },
+      { model: "13 Pro", prices: { screen: 319, battery: 99, port: 109, camera: 79 } },
+      { model: "13T Pro", prices: { screen: 279, battery: 89, port: 99, camera: 69 } },
+      { model: "14", prices: { screen: 299, battery: 99, port: 109, camera: 79 } },
+      { model: "14 Ultra", prices: { screen: 399, battery: 119, port: 129, camera: 99 } },
+      { model: "15", prices: { screen: 329, battery: 109, port: 119, camera: 89 } },
+      { model: "15 Ultra", prices: { screen: 429, battery: 129, port: 139, camera: 109 } }
+    ]
+  };
+
+  const featuredCount = 5;
+  const brandSelect = document.getElementById("brandSelect");
+  const modelSelect = document.getElementById("modelSelect");
+  const repairSelect = document.getElementById("repairSelect");
+  const priceValue = document.getElementById("priceValue");
+  const priceSummary = document.getElementById("priceSummary");
+  const repairTime = document.getElementById("repairTime");
+  const repairNote = document.getElementById("repairNote");
+  const featuredPriceBody = document.getElementById("featuredPriceBody");
+  const brandTabs = Array.from(document.querySelectorAll("[data-brand-tab]"));
+  const brandField = document.getElementById("brandField");
+  const modelField = document.getElementById("modelField");
+  const problemField = document.getElementById("problemField");
+  const repairForm = document.getElementById("repairForm");
+  const formStatus = document.getElementById("formStatus");
+
+  Object.keys(catalog).forEach((brand) => {
+    const option = document.createElement("option");
+    option.value = brand;
+    option.textContent = brand;
+    brandSelect.append(option);
+  });
+
+  function setActiveTab(brand) {
+    brandTabs.forEach((tab) => {
+      tab.classList.toggle("is-active", tab.dataset.brandTab === brand);
+    });
+  }
+
+  function updateFeaturedTable(brand) {
+    featuredPriceBody.innerHTML = "";
+    if (!brand || !catalog[brand]) {
+      return;
+    }
+
+    catalog[brand].slice(0, featuredCount).forEach((item) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${item.model}</td>
+        <td>€${item.prices.screen}</td>
+        <td>€${item.prices.battery}</td>
+        <td>€${item.prices.port}</td>
+      `;
+      featuredPriceBody.append(row);
+    });
+  }
+
+  function resetResult() {
+    priceValue.textContent = "Izvēlieties modeli";
+    priceSummary.textContent = "Izvēlieties marku, modeli un remonta veidu, lai redzētu orientējošo remonta cenu.";
+    repairTime.textContent = "Laiks tiks parādīts šeit";
+    repairNote.textContent = "Cenā ietilpst detaļas uzstādīšana, gala pārbaude un darba garantija.";
+  }
+
+  function populateModels(brand) {
+    modelSelect.innerHTML = "";
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = brand ? "Izvēlieties modeli" : "Vispirms izvēlieties marku";
+    modelSelect.append(placeholder);
+
+    if (!brand) {
+      modelSelect.disabled = true;
+      return;
+    }
+
+    catalog[brand].forEach((item) => {
+      const option = document.createElement("option");
+      option.value = item.model;
+      option.textContent = item.model;
+      modelSelect.append(option);
+    });
+
+    modelSelect.disabled = false;
+  }
+
+  function populateRepairs(model) {
+    repairSelect.innerHTML = "";
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = model ? "Izvēlieties remonta veidu" : "Vispirms izvēlieties modeli";
+    repairSelect.append(placeholder);
+
+    if (!model) {
+      repairSelect.disabled = true;
+      return;
+    }
+
+    Object.entries(repairTypes).forEach(([key, config]) => {
+      const option = document.createElement("option");
+      option.value = key;
+      option.textContent = config.label;
+      repairSelect.append(option);
+    });
+
+    repairSelect.disabled = false;
+  }
+
+  function syncFormFields(brand, model, repair) {
+    brandField.value = brand;
+    modelField.value = model;
+
+    const repairToProblem = {
+      screen: "Ekrāns saplaisājis vai nestrādā",
+      battery: "Baterija ātri izlādējas",
+      port: "Telefons nelādējas",
+      camera: "Kameras stikls bojāts"
+    };
+
+    if (repairToProblem[repair]) {
+      problemField.value = repairToProblem[repair];
+    }
+  }
+
+  function updatePrice() {
+    const brand = brandSelect.value;
+    const model = modelSelect.value;
+    const repair = repairSelect.value;
+
+    if (!brand || !model || !repair) {
+      resetResult();
+      return;
+    }
+
+    const selectedModel = catalog[brand].find((item) => item.model === model);
+    const selectedRepair = repairTypes[repair];
+
+    if (!selectedModel || !selectedRepair || selectedModel.prices[repair] == null) {
+      priceValue.textContent = "Nav atrasts";
+      priceSummary.textContent = "Šai kombinācijai pašlaik nav sagatavota orientējošā cena. Sazinieties ar mums precīzai informācijai.";
+      repairTime.textContent = "Nepieciešama precizēšana";
+      repairNote.textContent = "Pārbaudīsim detaļas pieejamību un sagatavosim cenu pirms remonta.";
+      return;
+    }
+
+    priceValue.textContent = "€" + selectedModel.prices[repair];
+    priceSummary.textContent = brand + " " + model + " - " + selectedRepair.label + ". Cena tiek apstiprināta pirms remonta sākuma.";
+    repairTime.textContent = selectedRepair.time;
+    repairNote.textContent = selectedRepair.note;
+    syncFormFields(brand, model, repair);
+  }
+
+  brandTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const brand = tab.dataset.brandTab;
+      brandSelect.value = brand;
+      setActiveTab(brand);
+      updateFeaturedTable(brand);
+      populateModels(brand);
+      populateRepairs("");
+      repairSelect.disabled = true;
+      resetResult();
+    });
+  });
+
+  brandSelect.addEventListener("change", () => {
+    const brand = brandSelect.value;
+    setActiveTab(brand);
+    updateFeaturedTable(brand);
+    populateModels(brand);
+    populateRepairs("");
+    resetResult();
+  });
+
+  modelSelect.addEventListener("change", () => {
+    populateRepairs(modelSelect.value);
+    resetResult();
+  });
+
+  repairSelect.addEventListener("change", updatePrice);
+
+  repairForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    formStatus.textContent = "";
+
+    if (!repairForm.checkValidity()) {
+      repairForm.reportValidity();
+      return;
+    }
+
+    formStatus.textContent = "Pieteikums sagatavots. Sazināsimies ar jums darba laikā.";
+    repairForm.reset();
+  });
+
+  const defaultBrand = "Apple";
+  brandSelect.value = defaultBrand;
+  setActiveTab(defaultBrand);
+  updateFeaturedTable(defaultBrand);
+  populateModels(defaultBrand);
+</script>
+</body>
+</html>

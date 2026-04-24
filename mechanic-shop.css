@@ -1,0 +1,875 @@
+:root {
+  --color-primary: #348fd6;
+  --color-secondary: #0c558e;
+  --color-accent: #e6a222;
+  --color-accent-dark: #bf8112;
+  --color-text: #3e3e3e;
+  --color-muted: #6f7b88;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f2f2f2;
+  --color-border: rgba(12, 85, 142, 0.12);
+  --color-shadow: rgba(7, 49, 82, 0.12);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --container: 1200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: var(--color-text);
+  background:
+    radial-gradient(circle at top left, rgba(52, 143, 214, 0.14), transparent 28%),
+    linear-gradient(180deg, #f8fbfe 0%, #ffffff 40%, #f7f9fb 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.container {
+  width: min(calc(100% - 2rem), var(--container));
+  margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-shell {
+  overflow-x: clip;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.section-heading {
+  max-width: 680px;
+}
+
+.section-heading--center {
+  text-align: center;
+  margin-inline: auto;
+}
+
+.section-heading h2,
+.section-heading h1 {
+  margin: 0;
+  color: var(--color-secondary);
+  font-family: "Roboto Slab", serif;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.1;
+}
+
+.section-heading p:last-child {
+  margin-bottom: 0;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.45rem;
+  border-radius: 999px;
+  border: 0;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 18px 30px -18px var(--color-shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 34px -20px rgba(7, 49, 82, 0.28);
+}
+
+.button--compact {
+  min-height: 2.8rem;
+  padding-inline: 1.2rem;
+}
+
+.button--gold {
+  color: #10263e;
+  background: linear-gradient(135deg, #f3bb4e 0%, var(--color-accent) 100%);
+}
+
+.button--blue {
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.button--light {
+  color: var(--color-secondary);
+  background: #fff;
+}
+
+.button--outline {
+  color: var(--color-secondary);
+  background: transparent;
+  border: 2px solid rgba(12, 85, 142, 0.18);
+  box-shadow: none;
+}
+
+.text-link {
+  color: var(--color-secondary);
+  font-weight: 800;
+}
+
+.topbar {
+  position: relative;
+  z-index: 20;
+  color: #fff;
+  background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -14px;
+  height: 14px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.28) 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 30%);
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0 1.05rem;
+}
+
+.topbar__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.topbar__links a {
+  opacity: 0.95;
+  font-weight: 700;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(12, 85, 142, 0.08);
+}
+
+.navbar__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.9rem 0;
+}
+
+.brand__mark,
+.footer__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 182px;
+  min-height: 82px;
+  padding: 0.9rem 1.5rem 1.15rem;
+  color: var(--color-secondary);
+  background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);
+  border: 3px solid rgba(111, 123, 136, 0.4);
+  clip-path: polygon(8% 0, 92% 0, 100% 18%, 100% 74%, 50% 100%, 0 74%, 0 18%);
+  font-family: "Roboto Slab", serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  box-shadow: 0 14px 28px -18px rgba(7, 49, 82, 0.28);
+}
+
+.navbar__menu {
+  display: flex;
+  justify-content: center;
+  gap: 1.35rem;
+  font-weight: 800;
+  color: var(--color-secondary);
+}
+
+.navbar__phones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: right;
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 0.96rem;
+}
+
+.nav-toggle {
+  display: none;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.7rem;
+  border: 1px solid rgba(12, 85, 142, 0.14);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 4px 0;
+  background: var(--color-secondary);
+}
+
+.hero {
+  position: relative;
+  padding: 5.5rem 0 4.5rem;
+  color: #fff;
+  isolation: isolate;
+}
+
+.hero__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(12, 85, 142, 0.92) 0%, rgba(12, 85, 142, 0.68) 46%, rgba(12, 85, 142, 0.5) 100%),
+    url("https://cdn-ilefcid.nitrocdn.com/fVyZRaZaofXvufgweCIAHXMBXlbuYcwI/assets/images/optimized/rev-89d950b/honestaccurateauto.com/wp-content/uploads/2021/01/H_HonestAccurate_316-July-Highlights-scaled.jpg") center/cover no-repeat;
+}
+
+.hero__backdrop::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 110px;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(9, 35, 61, 0.16) 100%),
+    url("https://cdn-ilefcid.nitrocdn.com/fVyZRaZaofXvufgweCIAHXMBXlbuYcwI/assets/images/optimized/rev-89d950b/honestaccurateauto.com/wp-content/uploads/2020/10/angle.svg") center bottom/cover no-repeat;
+}
+
+.hero__content {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.72fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Roboto Slab", serif;
+  font-size: clamp(2.7rem, 6vw, 5.4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.hero__lede {
+  max-width: 40rem;
+  margin: 1.15rem 0 0;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.65;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.hero__highlights {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0;
+  margin: 2rem 0 0;
+  list-style: none;
+}
+
+.hero__highlights li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-weight: 700;
+}
+
+.hero__highlights li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fff 0%, var(--color-accent) 100%);
+}
+
+.hero__panel {
+  position: relative;
+  display: grid;
+  gap: 1.2rem;
+  justify-items: end;
+}
+
+.hero__logo {
+  width: min(100%, 360px);
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.25));
+}
+
+.hero__logo--text {
+  display: grid;
+  place-items: center;
+  min-height: 170px;
+  padding: 1.4rem;
+  border: 4px solid rgba(255, 255, 255, 0.82);
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(12, 85, 142, 0.56), rgba(52, 143, 214, 0.28));
+  font-family: "Roboto Slab", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.25));
+}
+
+.hero__panel-card {
+  width: min(100%, 340px);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 26px 55px -32px rgba(0, 0, 0, 0.55);
+}
+
+.hero__panel-card p {
+  margin: 0.9rem 0;
+  line-height: 1.6;
+}
+
+.hero__panel-card a {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  color: #10263e;
+  background: linear-gradient(135deg, #ffd37a 0%, #f0b43b 100%);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.location-picks,
+.trust,
+.services,
+.news {
+  padding: 5rem 0;
+}
+
+.location-picks__grid,
+.trust__layout,
+.footer__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.location-picks__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2.25rem;
+}
+
+.location-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(52, 143, 214, 0.04) 0%, rgba(255, 255, 255, 1) 35%),
+    var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 28px 48px -38px rgba(7, 49, 82, 0.45);
+}
+
+.location-card__accent {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 12px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+
+.location-card__label {
+  margin: 0.4rem 0 0.4rem;
+  color: var(--color-primary);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.location-card h3 {
+  margin: 0;
+  color: var(--color-secondary);
+  font-family: "Roboto Slab", serif;
+  font-size: 1.7rem;
+}
+
+.location-card p {
+  margin: 0.55rem 0 0;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.location-card__phone {
+  display: inline-block;
+  margin-top: 1.3rem;
+  color: var(--color-secondary);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.location-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.mission-card h3,
+.news-card h3,
+.footer__logo,
+.footer__links h3 {
+  margin: 0;
+  color: var(--color-secondary);
+  font-family: "Roboto Slab", serif;
+}
+
+.trust {
+  background:
+    linear-gradient(180deg, rgba(242, 242, 242, 0.72) 0%, rgba(242, 242, 242, 0) 28%),
+    #fff;
+}
+
+.trust__layout {
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  align-items: start;
+}
+
+.trust__layout p {
+  line-height: 1.75;
+}
+
+.mission-card {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  color: #fff;
+  background:
+    linear-gradient(145deg, rgba(52, 143, 214, 0.98), rgba(12, 85, 142, 0.96)),
+    var(--color-secondary);
+  box-shadow: 0 26px 52px -32px rgba(7, 49, 82, 0.5);
+}
+
+.mission-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -8% -18% auto;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 62%);
+}
+
+.mission-card .eyebrow,
+.mission-card h3,
+.mission-card p {
+  position: relative;
+}
+
+.mission-card .eyebrow {
+  color: #d8edff;
+}
+
+.mission-card h3 {
+  color: #fff;
+}
+
+.mission-card p {
+  line-height: 1.75;
+}
+
+.mission-card__list {
+  display: grid;
+  gap: 0.85rem;
+  padding: 0;
+  margin: 1.2rem 0 0;
+  list-style: none;
+}
+
+.mission-card__list li {
+  position: relative;
+  padding-left: 1.2rem;
+  line-height: 1.65;
+}
+
+.mission-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #d8edff;
+}
+
+.feature-strip {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 2.4rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--color-border);
+}
+
+.feature-pill {
+  display: grid;
+  place-items: center;
+  min-height: 88px;
+  padding: 1rem;
+  border-radius: 22px;
+  color: var(--color-secondary);
+  background:
+    linear-gradient(135deg, rgba(52, 143, 214, 0.08), rgba(230, 162, 34, 0.12)),
+    #fff;
+  font-weight: 800;
+  text-align: center;
+}
+
+.services {
+  position: relative;
+}
+
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 94px;
+  background:
+    linear-gradient(180deg, rgba(52, 143, 214, 0.12), transparent),
+    url("https://cdn-ilefcid.nitrocdn.com/fVyZRaZaofXvufgweCIAHXMBXlbuYcwI/assets/images/optimized/rev-89d950b/honestaccurateauto.com/wp-content/uploads/2020/10/blue-angle-down.svg") center top/cover no-repeat;
+  opacity: 0.75;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.4rem;
+}
+
+.service-card {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  min-height: 100%;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 18px 40px -34px rgba(7, 49, 82, 0.48);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.service-card:hover,
+.service-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(52, 143, 214, 0.32);
+  box-shadow: 0 28px 42px -32px rgba(7, 49, 82, 0.46);
+}
+
+.service-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.service-card h3 {
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+
+.section-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.news {
+  background:
+    linear-gradient(180deg, rgba(12, 85, 142, 0.03) 0%, rgba(12, 85, 142, 0.01) 100%),
+    #fff;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.4rem;
+}
+
+.news-card {
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 22px 42px -34px rgba(7, 49, 82, 0.42);
+}
+
+.news-card img {
+  width: 100%;
+  aspect-ratio: 1 / 0.78;
+  object-fit: cover;
+}
+
+.news-card__body {
+  padding: 1.4rem;
+}
+
+.news-card__date {
+  margin: 0 0 0.55rem;
+  color: var(--color-primary);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+}
+
+.news-card h3 {
+  margin: 0;
+  color: var(--color-secondary);
+  font-family: "Roboto Slab", serif;
+  line-height: 1.3;
+}
+
+.news-card p:last-of-type {
+  line-height: 1.7;
+}
+
+.footer {
+  position: relative;
+  color: #dce9f5;
+  background: linear-gradient(180deg, #0d2943 0%, #0a1f33 100%);
+}
+
+.footer__road {
+  height: 88px;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.03) 100%),
+    url("https://cdn-ilefcid.nitrocdn.com/fVyZRaZaofXvufgweCIAHXMBXlbuYcwI/assets/images/optimized/rev-89d950b/honestaccurateauto.com/wp-content/uploads/2020/10/road-color.svg") center top/cover no-repeat;
+}
+
+.footer__inner {
+  grid-template-columns: 1.3fr 0.7fr 0.7fr;
+  padding: 2.4rem 0;
+}
+
+.footer__logo {
+  min-width: 160px;
+  min-height: 74px;
+  margin-bottom: 1rem;
+  color: #0d2943;
+  background: linear-gradient(180deg, #ffffff 0%, #ebf1f6 100%);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.footer__brand p {
+  max-width: 30rem;
+  line-height: 1.8;
+}
+
+.footer__links {
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+}
+
+.footer__links h3 {
+  color: #fff;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer__bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0 2rem;
+}
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .navbar__inner {
+    grid-template-columns: auto auto 1fr;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+
+  .navbar__menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 1rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.75rem;
+    border-radius: 24px;
+    background: #fff;
+    border: 1px solid rgba(12, 85, 142, 0.14);
+    box-shadow: 0 18px 30px -20px rgba(7, 49, 82, 0.35);
+  }
+
+  .navbar__menu.is-open {
+    display: flex;
+  }
+
+  .navbar__menu a {
+    padding: 0.9rem 0.7rem;
+    border-radius: 12px;
+  }
+
+  .navbar__menu a:hover,
+  .navbar__menu a:focus-visible {
+    background: rgba(52, 143, 214, 0.08);
+  }
+
+  .navbar__phones {
+    display: none;
+  }
+
+  .hero__content,
+  .trust__layout,
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__panel {
+    justify-items: start;
+  }
+
+  .service-grid,
+  .news-grid,
+  .feature-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .topbar__inner,
+  .footer__bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding-top: 4.5rem;
+  }
+
+  .location-picks,
+  .trust,
+  .services,
+  .news {
+    padding: 4rem 0;
+  }
+
+  .location-picks__grid,
+  .service-grid,
+  .news-grid,
+  .feature-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar__links {
+    gap: 0.8rem 1rem;
+  }
+
+  .hero__actions,
+  .location-card__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__actions .button,
+  .location-card__actions .button,
+  .section-actions .button {
+    width: 100%;
+  }
+
+  .hero__panel-card,
+  .hero__logo {
+    width: 100%;
+  }
+}

@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martas studija | Frizieru studija Rīgā</title>
+<meta
+  name="description"
+  content="Martas studija ir privāta vienas darba vietas frizieru studija Rīgas centrā ar pielāgotiem griezumiem, krāsošanu un mierīgām vizītēm tikai pēc pieraksta."
+>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf7f2;
+    --charcoal: #1a1a18;
+    --charcoal-soft: #232320;
+    --stone: #8b8178;
+    --stone-deep: #625951;
+    --gold: #c4a882;
+    --gold-light: #e8d5b5;
+    --rose: #d6b6af;
+    --border: rgba(139, 129, 120, 0.18);
+    --border-strong: rgba(139, 129, 120, 0.32);
+    --shadow: 0 24px 70px rgba(30, 23, 18, 0.12);
+    --success: #b6d4ba;
+    --danger: #dfb1a8;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(232, 213, 181, 0.2), transparent 28%),
+      linear-gradient(180deg, #fcfaf7 0%, #f8f3ec 100%);
+    color: var(--charcoal);
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid rgba(196, 168, 130, 0.85);
+    outline-offset: 3px;
+  }
+
+  .shell {
+    width: min(1220px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .section-block {
+    padding: 6.5rem 0;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.78fr);
+    gap: 2.75rem;
+    align-items: end;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.4rem, 4vw, 4.1rem);
+    font-weight: 300;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+  }
+
+  .section-copy {
+    font-size: 1rem;
+    color: var(--stone-deep);
+    line-height: 1.85;
+  }
+
+  .section-copy strong {
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.15rem 2rem;
+    background: rgba(250, 247, 242, 0.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(139, 129, 120, 0.12);
+  }
+
+  .nav-shell {
+    width: min(1240px, 100%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .nav-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.55rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .nav-logo span {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .nav-panel {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--charcoal);
+  }
+
+  .nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--charcoal);
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: currentColor;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+  }
+
+  nav.is-open .nav-toggle span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  nav.is-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  nav.is-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.92rem 1.6rem;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+  }
+
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-book:active {
+    transform: translateY(1px) scale(0.992);
+  }
+
+  .btn-primary,
+  .btn-book {
+    background: var(--charcoal);
+    color: var(--cream);
+    border: 1px solid var(--charcoal);
+  }
+
+  .btn-primary:hover,
+  .btn-book:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--charcoal);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--charcoal);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .nav-links a,
+  .footer-list a,
+  .contact-list a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .footer-list a:hover,
+  .contact-list a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 0.96fr) minmax(340px, 1.04fr);
+    padding-top: 86px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6.5rem 4rem 5rem max(2rem, calc((100vw - 1220px) / 2));
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 1.35rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(3.4rem, 6vw, 6.4rem);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    max-width: 10ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-sub {
+    max-width: 33rem;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--stone-deep);
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-note {
+    font-size: 0.85rem;
+    color: var(--stone);
+    margin-bottom: 2.3rem;
+  }
+
+  .hero-note span {
+    display: block;
+    margin-top: 0.35rem;
+  }
+
+  .hero-detail {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero-stat {
+    min-width: 0;
+  }
+
+  .hero-stat-num {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    line-height: 1.55;
+  }
+
+  .hero-right {
+    position: relative;
+    min-height: calc(100vh - 86px);
+    overflow: hidden;
+    background: #dcd2c4;
+  }
+
+  .hero-figure {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-figure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(30, 23, 18, 0.16) 0%, rgba(30, 23, 18, 0.04) 24%, rgba(30, 23, 18, 0.28) 100%),
+      radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 30%);
+    pointer-events: none;
+  }
+
+  .hero-figure img {
+    filter: saturate(0.92) contrast(0.98);
+  }
+
+  .hero-tag {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    max-width: 19rem;
+    padding: 1rem 1.15rem;
+    background: rgba(250, 247, 242, 0.92);
+    border-left: 3px solid var(--gold);
+    box-shadow: var(--shadow);
+  }
+
+  .hero-tag strong {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+  }
+
+  .hero-tag span {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.02rem;
+    line-height: 1.3;
+    color: var(--stone-deep);
+  }
+
+  .pricing-section {
+    background: var(--cream);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--border-strong);
+    border: 1px solid var(--border-strong);
+  }
+
+  .pricing-col {
+    background: var(--cream);
+    padding: 2.2rem 2rem 2rem;
+  }
+
+  .pricing-col-title {
+    margin-bottom: 0.35rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.55rem;
+    line-height: 1.1;
+  }
+
+  .pricing-col-sub {
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .price-item:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-trustline {
+    margin: 0 0 1.25rem;
+    font-size: 0.84rem;
+    color: var(--stone-deep);
+  }
+
+  .price-name {
+    flex: 1;
+    font-size: 0.96rem;
+    color: var(--charcoal);
+  }
+
+  .price-duration {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--stone);
+    white-space: nowrap;
+  }
+
+  .price-amount {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.12rem;
+    white-space: nowrap;
+  }
+
+  .pricing-note {
+    margin-top: 1.35rem;
+    font-size: 0.84rem;
+    color: var(--stone-deep);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .media-card {
+    position: relative;
+    overflow: hidden;
+    background: #d9d0c4;
+    min-height: 260px;
+  }
+
+  .media-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(32, 26, 21, 0.02), rgba(32, 26, 21, 0.18));
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .media-card img {
+    transition: transform 0.65s ease, filter 0.65s ease;
+    filter: saturate(0.92) contrast(0.98);
+  }
+
+  .media-card:hover img {
+    transform: scale(1.04);
+    filter: saturate(0.98) contrast(1);
+  }
+
+  .gallery-large {
+    grid-column: span 6;
+    grid-row: span 2;
+    min-height: 540px;
+  }
+
+  .gallery-medium {
+    grid-column: span 3;
+  }
+
+  .gallery-wide {
+    grid-column: span 6;
+  }
+
+  .gallery-imperfect img {
+    object-position: 58% center;
+  }
+
+  .media-caption {
+    position: absolute;
+    left: 1.15rem;
+    right: 1.15rem;
+    bottom: 1rem;
+    z-index: 2;
+    color: rgba(250, 247, 242, 0.96);
+  }
+
+  .media-caption span {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(232, 213, 181, 0.96);
+  }
+
+  .media-caption strong {
+    display: block;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.24rem;
+    font-weight: 400;
+    line-height: 1.16;
+  }
+
+  .reviews-section {
+    background: linear-gradient(180deg, rgba(245, 240, 232, 0.38), rgba(245, 240, 232, 0.78));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--border-strong);
+    border: 1px solid var(--border-strong);
+  }
+
+  .review-card {
+    padding: 2rem;
+    background: var(--warm-white);
+  }
+
+  .review-kicker {
+    margin-bottom: 0.95rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .review-body {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.55rem;
+    line-height: 1.28;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+
+  .review-name {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .story-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .story-visuals {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.78fr);
+    gap: 18px;
+    align-items: end;
+  }
+
+  .story-visual-tall {
+    min-height: 520px;
+  }
+
+  .story-visual-short {
+    min-height: 360px;
+  }
+
+  .story-copy {
+    padding-top: 0.75rem;
+  }
+
+  .story-copy p {
+    font-size: 1rem;
+    color: var(--stone-deep);
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+  }
+
+  .story-points {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    list-style: none;
+    margin: 1.9rem 0 2rem;
+  }
+
+  .story-points li {
+    padding: 0.95rem 1rem;
+    border: 1px solid var(--border);
+    background: rgba(250, 247, 242, 0.7);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone-deep);
+  }
+
+  .booking-section {
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+
+  .booking-section .section-label {
+    color: var(--gold-light);
+  }
+
+  .booking-section .section-title {
+    color: var(--cream);
+  }
+
+  .booking-section .section-copy {
+    color: rgba(245, 240, 232, 0.72);
+  }
+
+  .booking-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(340px, 1.18fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .booking-side {
+    display: grid;
+    gap: 18px;
+  }
+
+  .booking-card,
+  .booking-form-wrap,
+  .info-card {
+    border: 1px solid rgba(245, 240, 232, 0.12);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .booking-card {
+    padding: 2rem;
+  }
+
+  .booking-card p {
+    color: rgba(245, 240, 232, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 1.45rem;
+  }
+
+  .booking-response-note {
+    margin-top: -1rem;
+    margin-bottom: 1.35rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(232, 213, 181, 0.9);
+  }
+
+  .contact-list,
+  .booking-hours,
+  .booking-notes {
+    list-style: none;
+  }
+
+  .contact-list {
+    margin-bottom: 1.6rem;
+  }
+
+  .contact-list li,
+  .booking-hours li,
+  .booking-notes li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(245, 240, 232, 0.08);
+    font-size: 0.84rem;
+  }
+
+  .contact-list li span:first-child,
+  .booking-hours li span:first-child {
+    color: rgba(245, 240, 232, 0.48);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.68rem;
+  }
+
+  .contact-list li a,
+  .contact-list li span:last-child,
+  .booking-hours li span:last-child {
+    color: var(--cream);
+  }
+
+  .contact-hint {
+    margin: -0.35rem 0 1.4rem;
+    font-size: 0.82rem;
+    color: rgba(245, 240, 232, 0.58);
+  }
+
+  .booking-notes li {
+    display: block;
+    color: rgba(245, 240, 232, 0.7);
+    line-height: 1.7;
+  }
+
+  .booking-side-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 18px;
+  }
+
+  .info-card {
+    padding: 1rem;
+  }
+
+  .info-card-title {
+    margin-bottom: 0.55rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(232, 213, 181, 0.86);
+  }
+
+  .map-embed {
+    border: 1px solid rgba(245, 240, 232, 0.08);
+    overflow: hidden;
+    background: rgba(250, 247, 242, 0.08);
+    margin-bottom: 0.9rem;
+  }
+
+  .map-embed iframe {
+    display: block;
+    width: 100%;
+    height: 220px;
+    border: 0;
+    filter: grayscale(0.22) saturate(0.85) contrast(0.98);
+  }
+
+  .map-meta {
+    font-size: 0.84rem;
+    line-height: 1.7;
+    color: rgba(245, 240, 232, 0.7);
+  }
+
+  .instagram-preview p {
+    font-size: 0.84rem;
+    line-height: 1.7;
+    color: rgba(245, 240, 232, 0.7);
+    margin-bottom: 0.9rem;
+  }
+
+  .instagram-handle {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.4rem;
+    color: var(--cream);
+  }
+
+  .instagram-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .instagram-thumb {
+    overflow: hidden;
+    min-height: 96px;
+    background: rgba(250, 247, 242, 0.08);
+  }
+
+  .instagram-thumb img {
+    transition: transform 0.55s ease;
+  }
+
+  .instagram-thumb:hover img {
+    transform: scale(1.04);
+  }
+
+  .booking-form-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .new-client-note {
+    padding: 0.95rem 1rem;
+    border-bottom: 1px solid rgba(245, 240, 232, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .new-client-note strong {
+    display: block;
+    margin-bottom: 0.22rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(232, 213, 181, 0.92);
+  }
+
+  .new-client-note span {
+    display: block;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(245, 240, 232, 0.72);
+  }
+
+  .booking-form {
+    display: grid;
+    gap: 1px;
+    background: rgba(245, 240, 232, 0.1);
+  }
+
+  .booking-form.submitted {
+    display: none;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+  }
+
+  .form-group {
+    background: var(--charcoal-soft);
+    padding: 0.9rem 1rem 1rem;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .form-group:focus-within {
+    background: #2a2925;
+    box-shadow: inset 0 0 0 1px rgba(196, 168, 130, 0.35);
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.42);
+  }
+
+  .field-control {
+    width: 100%;
+    border: 1px solid transparent;
+    background: transparent;
+    caret-color: var(--gold-light);
+    color: var(--cream);
+    font-size: 0.96rem;
+    font-weight: 300;
+    padding: 0.15rem 0;
+    outline: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    appearance: none;
+  }
+
+  .field-control::placeholder {
+    color: rgba(245, 240, 232, 0.32);
+  }
+
+  .field-control option {
+    background: var(--charcoal-soft);
+    color: var(--cream);
+  }
+
+  textarea.field-control {
+    min-height: 92px;
+    resize: vertical;
+  }
+
+  .booking-form.is-attempted .field-control:invalid {
+    border-color: var(--danger);
+  }
+
+  .form-actions {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .btn-book {
+    width: 100%;
+    font-weight: 500;
+  }
+
+  .btn-book[disabled] {
+    cursor: wait;
+    opacity: 0.82;
+    transform: none;
+  }
+
+  .form-helper {
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+    color: rgba(245, 240, 232, 0.56);
+    text-align: center;
+  }
+
+  .form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 100%;
+    padding: 3.4rem 2rem;
+    text-align: center;
+    background: var(--charcoal-soft);
+  }
+
+  .form-success.show {
+    display: flex;
+  }
+
+  .success-icon {
+    width: 52px;
+    height: 52px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: var(--gold-light);
+  }
+
+  .success-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: var(--cream);
+  }
+
+  .success-sub {
+    max-width: 26rem;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: rgba(245, 240, 232, 0.62);
+  }
+
+  footer {
+    background: #151513;
+    color: rgba(245, 240, 232, 0.68);
+    border-top: 1px solid rgba(245, 240, 232, 0.08);
+  }
+
+  .footer-shell {
+    width: min(1220px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 3.2rem 0 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    max-width: 20rem;
+  }
+
+  .footer-logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.45rem;
+    color: var(--cream);
+    margin-bottom: 0.7rem;
+  }
+
+  .footer-logo span {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .footer-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(245, 240, 232, 0.56);
+  }
+
+  .footer-col-title {
+    margin-bottom: 0.8rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.42);
+  }
+
+  .footer-list {
+    list-style: none;
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .footer-list a,
+  .footer-list span {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(245, 240, 232, 0.82);
+  }
+
+  .footer-list a:hover {
+    color: var(--gold-light);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(245, 240, 232, 0.08);
+    font-size: 0.78rem;
+    color: rgba(245, 240, 232, 0.34);
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 1rem;
+    color: rgba(245, 240, 232, 0.42);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .media-card img,
+    .btn-primary,
+    .btn-secondary,
+    .btn-book {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-left {
+      padding: 5rem 2rem 3rem;
+    }
+
+    .hero-title {
+      max-width: 11ch;
+    }
+
+    .hero-right {
+      min-height: 460px;
+    }
+
+    .section-header,
+    .story-layout,
+    .booking-layout,
+    .booking-side-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-grid,
+    .review-grid,
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-large,
+    .gallery-medium,
+    .gallery-wide {
+      grid-column: span 12;
+      min-height: 320px;
+    }
+
+    .story-visuals {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .story-visual-tall,
+    .story-visual-short {
+      min-height: 340px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 900px) {
+    nav {
+      padding: 1rem 1.15rem;
+    }
+
+    .nav-toggle {
+      display: inline-flex;
+    }
+
+    .nav-panel {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 1rem;
+      right: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      background: rgba(250, 247, 242, 0.98);
+      box-shadow: 0 18px 50px rgba(20, 16, 12, 0.08);
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+
+    nav.is-open .nav-panel {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 0.2rem 0;
+    }
+
+    .nav-panel .btn-primary {
+      width: 100%;
+    }
+
+    .hero-left {
+      padding: 4rem 1.25rem 2.5rem;
+    }
+
+    .hero-detail {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .shell,
+    .footer-shell {
+      width: calc(100% - 32px);
+    }
+
+    .section-block {
+      padding: 4.8rem 0;
+    }
+
+    .story-points {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-right {
+      min-height: 380px;
+    }
+
+    .hero-tag {
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      max-width: none;
+    }
+
+    .hero-detail {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+    }
+
+    .review-card,
+    .pricing-col,
+    .booking-card {
+      padding: 1.55rem;
+    }
+
+    .story-visuals {
+      grid-template-columns: 1fr;
+    }
+
+    .story-visual-tall,
+    .story-visual-short {
+      min-height: 300px;
+    }
+
+    .media-caption strong {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-shell">
+    <a class="nav-logo" href="#top">Martas <span>studija</span></a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Atvērt navigāciju">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-panel" id="navPanel">
+      <ul class="nav-links">
+        <li><a href="#services">Pakalpojumi</a></li>
+        <li><a href="#gallery">Galerija</a></li>
+        <li><a href="#about">Par studiju</a></li>
+        <li><a href="#booking">Pieraksts</a></li>
+      </ul>
+      <a href="#booking" class="btn-primary">Pieteikt vizīti</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-left">
+    <p class="hero-eyebrow reveal">Privāta frizieru studija · Rīgas centrs</p>
+    <h1 class="hero-title reveal">Mierīgas, pārdomātas matu vizītes pašā Rīgas centrā.</h1>
+    <p class="hero-sub reveal">
+      Griezumi, krāsošana un kopšana privātā vienas darba vietas studijā. Krāsošanas vizītes sākas ar īsu konsultāciju.
+      Katra reize tiek pielāgota jūsu matu tipam, ikdienai un rezultātam, ko tiešām gribas valkāt.
+    </p>
+
+    <div class="hero-actions reveal">
+      <a href="#booking" class="btn-primary">Pieteikt vizīti</a>
+      <a href="#services" class="btn-secondary">Skatīt pakalpojumus</a>
+    </div>
+
+    <p class="hero-note reveal">
+      Tikai pēc pieraksta. Apstiprinājums pa tālruni vai SMS.
+      <span>Studija atrodas nelielā 2. stāva telpā Blaumaņa ielā, pie Barona kvartāla.</span>
+    </p>
+
+    <div class="hero-detail reveal">
+      <div class="hero-stat">
+        <span class="hero-stat-num">12+</span>
+        <span class="hero-stat-label">Gadu pieredze</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">1</span>
+        <span class="hero-stat-label">Privāta vienas vietas studija</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">Pirm.–Sest.</span>
+        <span class="hero-stat-label">Vizītes pēc pieraksta</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">2012</span>
+        <span class="hero-stat-label">Studija kopš 2012. gada</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right reveal">
+    <figure class="hero-figure">
+      <img
+        src="https://images.unsplash.com/photo-1746723378067-83a345ff3160?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+        alt="Salona interjers ar produktu plauktiem un darba zonu"
+        fetchpriority="high"
+        referrerpolicy="no-referrer"
+      >
+    </figure>
+    <div class="hero-tag">
+      <strong>Apmeklējiet studiju</strong>
+      <span>Blaumaņa iela 14, Rīga — 2. stāva studija pie Barona kvartāla.</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-block pricing-section" id="services">
+  <div class="shell">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-label">Pakalpojumi un cenas</span>
+        <h2 class="section-title">Rūpīgs darbs, skaidrs ilgums un cenas bez pārsteigumiem.</h2>
+      </div>
+      <p class="section-copy">
+        Biežākie pieraksti ir griezumam, krāsas atsvaidzināšanai vai kopšanai. Ja nezināt, ko rezervēt,
+        sāciet ar konsultāciju pirms krāsošanas.
+      </p>
+    </div>
+
+    <p class="pricing-trustline reveal">Visi krāsošanas pakalpojumi ietver īsu konsultāciju pirms darba sākuma.</p>
+
+    <div class="pricing-grid reveal">
+      <div class="pricing-col">
+        <div class="pricing-col-title">Griezums un ieveidošana</div>
+        <div class="pricing-col-sub">Veidots, izžāvēts, ērts ikdienā</div>
+
+        <div class="price-item">
+          <span class="price-name">Griezums un fēnošana</span>
+          <span class="price-duration">60–75 min</span>
+          <span class="price-amount">no €45</span>
+        </div>
+        <div class="price-item">
+          <span class="price-name">Īss / vīriešu griezums</span>
+          <span class="price-duration">35–45 min</span>
+          <span class="price-amount">no €28</span>
+        </div>
+        <div class="price-item">
+          <span class="price-name">Čolkas korekcija</span>
+          <span class="price-duration">15 min</span>
+          <span class="price-amount">€12</span>
+        </div>
+        <div class="price-item">
+          <span class="price-name">Mazgāšana un ieveidošana</span>
+          <span class="price-duration">40 min</span>
+          <span class="price-amount">no €24</span>
+        </div>
+      </div>
+
+      <div class="pricing-col">
+        <div class="pricing-col-title">Krāsošana</div>
+        <div class="pricing-col-sub">Konsultācija pirms krāsošanas</div>
+
+        <div class="price-item">
+          <span class="price-name">Sakņu atjaunošana</span>
+          <span class="price-duration">90 min</span>
+          <span class="price-amount">no €58</span>
+        </div>
+        <div class="price-item">
+          <span class="price-name">Glancējums / tonēšana</span>
+          <span class="price-duration">60 min</span>
+          <span class="price-amount">no €38</span>
+        </div>
+        <div class="price-item">
+          <span class="price-name">Pilna krāsošana</span>
+          <span class="price-duration">120 min</span>
+          <span class="price-amount">no €78</span>
+        </div>
+        <div class="price-item">
+          <span class="price-name">Šķipsnas / balayage</span>
+          <span class="price-duration">150–180 min</span>
+          <span class="price-amount">no €110</span>
+        </div>
+      </div>
+
+      <div class="pricing-col">
+        <div class="pricing-col-title">Kopšana un ieveidošana</div>
+        <div class="pricing-col-sub">Veseliem, viegli kopjamiem matiem</div>
+
+        <div class="price-item">
+          <span class="price-name">Dziļi kopjoša procedūra</span>
+          <span class="price-duration">30 min</span>
+          <span class="price-amount">€25</span>
+        </div>
+        <div class="price-item">
+          <span class="price-name">Galvas ādas kopšanas papildinājums</span>
+          <span class="price-duration">20 min</span>
+          <span class="price-amount">€18</span>
+        </div>
+        <div class="price-item">
+          <span class="price-name">Pasākuma ieveidošana</span>
+          <span class="price-duration">75 min</span>
+          <span class="price-amount">no €55</span>
+        </div>
+        <div class="price-item">
+          <span class="price-name">Konsultācija pirms krāsošanas</span>
+          <span class="price-duration">20 min</span>
+          <span class="price-amount">Bez maksas</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="pricing-note reveal">
+      Galīgā cena ir atkarīga no matu garuma, biezuma un iepriekšējās krāsošanas vēstures. Pirms lielākām krāsas pārmaiņām ieteicama konsultācija.
+    </p>
+  </div>
+</section>
+
+<section class="section-block" id="gallery">
+  <div class="shell">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-label">Studija un darbi</span>
+        <h2 class="section-title">Mierīga studija, sakopti mati un detaļas, ko klientes pamana vispirms.</h2>
+      </div>
+      <p class="section-copy">
+        Ieskats studijā: darba vieta, process, mazgāšanas zona un produktu plaukts, ko klientes redz vizītes laikā.
+      </p>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <figure class="media-card gallery-large">
+        <img
+          src="https://images.unsplash.com/photo-1633681122703-3ce20f1e978d?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+          alt="Elegants salona interjers ar spoguļiem un frizieru krēsliem"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        >
+        <figcaption class="media-caption">
+          <span>Studija</span>
+          <strong>Privāta darba vieta ar spoguļiem, gaismu un mierīgāku tempu.</strong>
+        </figcaption>
+      </figure>
+
+      <figure class="media-card gallery-medium gallery-imperfect">
+        <img
+          src="https://images.unsplash.com/photo-1675034741473-afed58a142e8?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+          alt="Friziere strādā ar klientes matiem vizītes laikā"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        >
+        <figcaption class="media-caption">
+          <span>Krāsošana</span>
+          <strong>Vizītes tiek pielāgotas matu tipam, tonim un kopšanas ritmam.</strong>
+        </figcaption>
+      </figure>
+
+      <figure class="media-card gallery-medium">
+        <img
+          src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+          alt="Matu mazgāšanas zona procedūras laikā"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        >
+        <figcaption class="media-caption">
+          <span>Kopšana</span>
+          <strong>Mazgāšana, procedūras un galvas ādas komforts ir daļa no pieredzes.</strong>
+        </figcaption>
+      </figure>
+
+      <figure class="media-card gallery-wide">
+        <img
+          src="https://images.unsplash.com/photo-1749137315928-bc96451fa4c0?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+          alt="Matu un skaistumkopšanas produkti uz plaukta"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        >
+        <figcaption class="media-caption">
+          <span>Produkti</span>
+          <strong>Pārdomāts produktu klāsts veseliem, viegli kopjamiem matiem starp vizītēm.</strong>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section-block reviews-section" id="reviews">
+  <div class="shell">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-label">Klientu atsauksmes</span>
+        <h2 class="section-title">Tieši tādas atsauksmes klientes atstāj pēc labas vizītes.</h2>
+      </div>
+      <p class="section-copy">
+        Īsas piezīmes par atmosfēru, saziņu un to, kā mati jūtas, kad kliente atgriežas savā ikdienā.
+      </p>
+    </div>
+
+    <div class="review-grid reveal">
+      <article class="review-card">
+        <p class="review-kicker">Pēc krāsošanas</p>
+        <p class="review-body">"Šeit nejūtos steidzināta. Marta izskaidro, kas maniem matiem piestāv, un krāsa izaug ļoti dabiski."</p>
+        <p class="review-name">Elīna, Rīgas centrs</p>
+      </article>
+
+      <article class="review-card">
+        <p class="review-kicker">Pēc regulāra griezuma</p>
+        <p class="review-body">"Privātā studija daudz ko maina. Viss ir mierīgi un personīgi. Griezums labi turas arī pēc vairākām nedēļām."</p>
+        <p class="review-name">Madara, Āgenskalns</p>
+      </article>
+
+      <article class="review-card">
+        <p class="review-kicker">Pirms lielākām pārmaiņām krāsā</p>
+        <p class="review-body">"Atnācu īsti nezinot, ko rezervēt. Konsultācija ļoti palīdzēja, un rezultāts bija dabisks, viegli kopjams."</p>
+        <p class="review-name">Līga, Teika</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block" id="about">
+  <div class="shell">
+    <div class="story-layout reveal">
+      <div class="story-visuals">
+        <figure class="media-card story-visual-tall">
+          <img
+            src="https://images.unsplash.com/photo-1764168786599-d23392d9a279?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+            alt="Kliente pie spoguļa pielabo matus"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          >
+        </figure>
+
+        <figure class="media-card story-visual-short">
+          <img
+            src="https://images.unsplash.com/photo-1632888037643-983487fe70da?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.0.3&q=60&w=3000"
+            alt="Sieviete veido matus spoguļa priekšā"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          >
+        </figure>
+      </div>
+
+      <div class="story-copy">
+        <span class="section-label">Par studiju</span>
+        <h2 class="section-title">Mierīgāks salona apmeklējums.</h2>
+        <p>
+          Marta atvēra studiju 2012. gadā pēc vairākiem gadiem rosīgākos salonos. Ideja palika vienkārša:
+          viens krēsls, pietiekami daudz laika un darbs, kas ir pārdomāts, nevis sasteigts.
+        </p>
+        <p>
+          Vizītes notiek tikai pēc pieraksta. Krāsošanas pakalpojumi sākas ar sarunu par iepriekšējo krāsu, matu stāvokli
+          un to, cik daudz kopšanas jums ikdienā šķiet reāli. Mērķis ir mati, kas strādā ikdienā, ne tikai vienai dienai.
+        </p>
+
+        <ul class="story-points">
+          <li>Konsultācija pirms krāsošanas</li>
+          <li>Pielāgots jūsu matu tipam</li>
+          <li>Privāta studijas pieredze</li>
+          <li>Tikai pēc pieraksta</li>
+        </ul>
+
+        <a href="#booking" class="btn-primary">Pieteikt vizīti</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-block booking-section" id="booking">
+  <div class="shell">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-label">Vizītes pieteikums</span>
+        <h2 class="section-title">Pastāstiet Martai, kas jums vajadzīgs, un piedāvājiet sev ērtu laiku.</h2>
+      </div>
+      <p class="section-copy">
+        Atstājiet dažas detaļas un sev vēlamo laiku. Ja piesakāties krāsošanai, īsa piezīme palīdz Martai saprast, cik daudz laika atvēlēt.
+      </p>
+    </div>
+
+    <p class="booking-response-note reveal">Parasti atbildu dažu stundu laikā.</p>
+
+    <div class="booking-layout">
+      <div class="booking-side reveal">
+        <div class="booking-card">
+          <p>
+            Vizītes notiek tikai pēc pieraksta. Ja plānojat krāsošanu vai lielākas pārmaiņas, īsa piezīme par iepriekšējo krāsu,
+            matu garumu vai iedvesmu palīdz apstiprināt piemērotāko laiku.
+          </p>
+
+          <ul class="contact-list">
+            <li><span>Tālrunis</span><a href="tel:+37127418632">+371 27 418 632</a></li>
+            <li><span>E-pasts</span><a href="mailto:hello@martastudio.lv">hello@martastudio.lv</a></li>
+            <li><span>Instagram</span><a href="https://instagram.com/martastudio.riga" target="_blank" rel="noopener">@martastudio.riga</a></li>
+            <li><span>Adrese</span><span>Blaumaņa iela 14, Rīga · 2. stāvs · pie Barona kvartāla</span></li>
+          </ul>
+          <p class="contact-hint">Zvaniet vai rakstiet darba laikā.</p>
+
+          <ul class="booking-hours">
+            <li><span>Pirmd.–Piektd.</span><span>10:00–19:00</span></li>
+            <li><span>Sestd.</span><span>10:00–16:00</span></li>
+            <li><span>Svētd.</span><span>Slēgts</span></li>
+          </ul>
+
+          <ul class="booking-notes">
+            <li>Apstiprinājums pa tālruni vai SMS pēc tam, kad pieteikums ir izskatīts.</li>
+            <li>Pirms krāsošanas pakalpojumiem vai lielākām toņa pārmaiņām ieteicama konsultācija.</li>
+            <li>Atcelšanas gadījumā ļoti novērtēju ziņu vismaz 24 stundas iepriekš.</li>
+          </ul>
+        </div>
+
+        <div class="booking-side-grid">
+          <div class="info-card">
+            <p class="info-card-title">Atrašanās vieta</p>
+            <div class="map-embed">
+              <iframe
+                src="https://www.google.com/maps?q=Blauma%C5%86a%20iela%2014%2C%20R%C4%ABga&output=embed"
+                title="Kartes skats ar studijas atrašanās vietu Rīgā"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <p class="map-meta">Blaumaņa iela 14, Rīga. Neliela 2. stāva studija pie Barona kvartāla.</p>
+          </div>
+
+          <div class="info-card instagram-preview">
+            <p class="info-card-title">Instagram</p>
+            <span class="instagram-handle">@martastudio.riga</span>
+            <p>Jaunākie darbi un krāsošanas atjauninājumi.</p>
+            <div class="instagram-strip" aria-hidden="true">
+              <div class="instagram-thumb">
+                <img src="https://images.unsplash.com/photo-1675034741473-afed58a142e8?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=900" alt="">
+              </div>
+              <div class="instagram-thumb">
+                <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=900" alt="">
+              </div>
+              <div class="instagram-thumb">
+                <img src="https://images.unsplash.com/photo-1749137315928-bc96451fa4c0?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=900" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-form-wrap reveal">
+        <div class="new-client-note">
+          <strong>Pirmā vizīte?</strong>
+          <span>Ja nezināt, ko izvēlēties, piesakieties konsultācijai.</span>
+        </div>
+        <form class="booking-form" id="bookingForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">Vārds</label>
+              <input class="field-control" id="firstName" name="first_name" type="text" placeholder="Elīna" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Tālrunis</label>
+              <input class="field-control" id="phone" name="phone" type="tel" placeholder="+371 27 418 632" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-pasts</label>
+              <input class="field-control" id="email" name="email" type="email" placeholder="elina@epasts.lv">
+            </div>
+            <div class="form-group">
+              <label for="service">Pakalpojums</label>
+              <select class="field-control" id="service" name="service" required>
+                <option value="">Izvēlieties pakalpojumu</option>
+                <option>Griezums un fēnošana</option>
+                <option>Īss / vīriešu griezums</option>
+                <option>Sakņu atjaunošana</option>
+                <option>Glancējums / tonēšana</option>
+                <option>Pilna krāsošana</option>
+                <option>Šķipsnas / balayage</option>
+                <option>Kopjoša procedūra</option>
+                <option>Konsultācija pirms krāsošanas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Vēlamais datums</label>
+              <input class="field-control" id="date" name="date" type="date" required>
+            </div>
+            <div class="form-group">
+              <label for="time">Vēlamais laiks</label>
+              <select class="field-control" id="time" name="time" required>
+                <option value="">Izvēlieties laiku</option>
+                <option>Rīts (10:00–12:00)</option>
+                <option>Dienas vidus (12:00–15:00)</option>
+                <option>Pēcpusdiena (15:00–18:00)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Piezīmes</label>
+            <textarea
+              class="field-control"
+              id="notes"
+              name="notes"
+              placeholder="Ja šī ir krāsošanas vizīte, pieminiet iepriekšējo krāsu, matu garumu vai to, kādu kopšanas ritmu vēlaties."
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-book" id="bookingSubmit">Nosūtīt pieteikumu</button>
+            <p class="form-helper">Apstiprinājums pa tālruni vai SMS. Tiešsaistes apmaksa nav nepieciešama.</p>
+          </div>
+        </form>
+
+        <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+          <div class="success-icon">✓</div>
+          <h3 class="success-title">Pieteikums nosūtīts</h3>
+          <p class="success-sub">
+            Paldies. Marta sazināsies ar jums pa tālruni vai SMS, lai apstiprinātu piemērotāko laiku un, ja vajadzēs, konsultācijas detaļas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Martas <span>studija</span></div>
+        <p class="footer-text">
+          Privātas matu vizītes Rīgas centrā tiem, kuri vēlas mierīgu saziņu, pārdomātu krāsošanu un matus, kas labi strādā ikdienā.
+        </p>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Sazināties</p>
+        <ul class="footer-list">
+          <li><a href="tel:+37127418632">+371 27 418 632</a></li>
+          <li><a href="mailto:hello@martastudio.lv">hello@martastudio.lv</a></li>
+          <li><a href="https://instagram.com/martastudio.riga" target="_blank" rel="noopener">@martastudio.riga</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Atrašanās vieta</p>
+        <ul class="footer-list">
+          <li><span>Blaumaņa iela 14, Rīga · 2. stāvs</span></li>
+          <li><span>Tikai pēc pieraksta</span></li>
+          <li><span>Pieejama konsultācija pirms krāsošanas</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Darba laiks</p>
+        <ul class="footer-list">
+          <li><span>Pirmd.–Piektd.: 10:00–19:00</span></li>
+          <li><span>Sestd.: 10:00–16:00</span></li>
+          <li><span>Apstiprinājums pa tālruni vai SMS</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Martas studija, Rīga</span>
+      <span>Privāta vienas vietas studija kopš 2012. gada</span>
+      <div class="footer-legal">
+        <span>Privātums</span>
+        <span>Noteikumi</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealElements = document.querySelectorAll(".reveal");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    revealElements.forEach((element) => element.classList.add("visible"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px"
+      }
+    );
+
+    revealElements.forEach((element) => revealObserver.observe(element));
+  }
+
+  const siteNav = document.querySelector("nav");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelectorAll(".nav-links a, .nav-panel .btn-primary");
+
+  function closeNav() {
+    if (!siteNav || !navToggle) {
+      return;
+    }
+
+    siteNav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  }
+
+  navToggle?.addEventListener("click", () => {
+    const isOpen = siteNav.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", closeNav);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      closeNav();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!siteNav?.classList.contains("is-open")) {
+      return;
+    }
+
+    if (!siteNav.contains(event.target)) {
+      closeNav();
+    }
+  });
+
+  const bookingForm = document.getElementById("bookingForm");
+  const bookingSuccess = document.getElementById("formSuccess");
+  const submitButton = document.getElementById("bookingSubmit");
+  const dateInput = document.getElementById("date");
+
+  if (dateInput) {
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.min = today;
+  }
+
+  bookingForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    bookingForm.classList.add("is-attempted");
+
+    if (!bookingForm.checkValidity()) {
+      bookingForm.reportValidity();
+      bookingForm.querySelector(":invalid")?.focus();
+      return;
+    }
+
+    if (!submitButton) {
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sūta pieteikumu...";
+    submitButton.setAttribute("aria-busy", "true");
+
+    window.setTimeout(() => {
+      bookingForm.classList.add("submitted");
+      bookingSuccess?.classList.add("show");
+      submitButton.disabled = false;
+      submitButton.textContent = "Nosūtīt pieteikumu";
+      submitButton.removeAttribute("aria-busy");
+    }, 1300);
+  });
+</script>
+</body>
+</html>
