@@ -112,6 +112,7 @@
       align-items: center;
       gap: 28px;
       list-style: none;
+      margin-left: auto;
     }
 
     .nav-links a {
@@ -130,17 +131,12 @@
     }
 
     .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--accent-strong);
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 10px 24px rgba(35, 28, 22, 0.1);
-      transform: translateY(-1px);
-    }
-
+    .nav-links a:focus-visible,
     .nav-links a[aria-current="page"] {
       color: var(--accent-strong);
       background: rgba(255, 255, 255, 0.92);
       box-shadow: 0 10px 24px rgba(35, 28, 22, 0.1);
+      transform: translateY(-1px);
     }
 
     .nav-toggle {
@@ -179,7 +175,23 @@
       transform: translateY(-7px) rotate(-45deg);
     }
 
-    .nav-cta,
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border: 1px solid var(--accent-strong);
+      background: var(--accent-strong);
+      color: var(--paper-soft);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.18), 0 4px 12px rgba(26,55,47,0.10);
+    }
+
     .btn-primary,
     .contact-button {
       display: inline-block;
@@ -196,6 +208,13 @@
     }
 
     .nav-cta:hover,
+    .nav-cta:focus-visible {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 0 rgba(0,0,0,0.16), 0 8px 20px rgba(26,55,47,0.16);
+    }
+
     .btn-primary:hover,
     .contact-button:hover {
       background: var(--accent);
@@ -1605,6 +1624,7 @@
         display: none;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px 12px;
+        margin-left: 0;
       }
 
       .nav-links li {
@@ -2037,9 +2057,8 @@
       <li><a href="piemeri.html" aria-current="page">Piemēri</a></li>
       <li><a href="cenas.html">Cenas</a></li>
       <li><a href="par-mani.html">Par mani</a></li>
-      <li><a href="kontakti.html">Kontakti</a></li>
     </ul>
-    <a href="index.html#contact" class="nav-cta">Pieteikt sarunu</a>
+    <a href="kontakti.html" class="nav-cta">Kontakti</a>
   </nav>
 
   <div class="hero-wrap" id="top">
