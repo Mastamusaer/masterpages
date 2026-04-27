@@ -15,6 +15,8 @@
     property="og:description"
     content="Individuāla pieeja vietējiem uzņēmumiem, kam vajadzīga skaidra un uzticama mājaslapa bez liekas sarežģītības."
   />
+  <link rel="icon" type="image/png" sizes="256x256" href="lapumeistars-favicon.png" />
+  <link rel="shortcut icon" href="lapumeistars-favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -696,9 +698,13 @@
     @media (max-width: 900px) {
       nav {
         height: auto;
-        align-items: flex-start;
+        align-items: center;
         flex-wrap: wrap;
-        padding: 18px 20px;
+        padding: 16px 20px 18px;
+      }
+
+      .nav-logo img {
+        height: 44px;
       }
 
       .nav-toggle {
@@ -720,10 +726,19 @@
         display: flex;
       }
 
+      nav.is-open .nav-cta {
+        display: inline-flex;
+      }
+
       .nav-links li,
       .nav-links a,
       .nav-cta {
         width: 100%;
+      }
+
+      .nav-cta {
+        display: none;
+        justify-content: center;
       }
 
       .page-shell,
@@ -803,9 +818,9 @@
     <section class="hero">
       <div class="reveal">
         <p class="eyebrow">Par mani</p>
-        <h1 class="hero-title">Kas ir lapu meistars?</h1>
+        <h1 class="hero-title">Kas ir Lapumeistars?</h1>
         <p class="hero-body">
-          Es strādāju tieši ar vietējiem uzņēmumiem, kuriem vajadzīga skaidra, uzticama mājaslapa, nevis aģentūras process ar lieku sarežģītību.
+          Es veidoju mājaslapas vietējiem uzņēmumiem, kuriem vajadzīgs skaidrs un uzticams risinājums - bez aģentūru procesiem un liekas sarežģītības.
         </p>
         <p class="hero-body">
           Katrs projekts tiek veidots individuāli, ar fokusu uz to, lai jūsu klientiem būtu viegli saprast, ko jūs piedāvājat, un sazināties ar jums.
@@ -830,15 +845,15 @@
           <ul class="detail-list">
             <li>
               <strong>Individuāls darbs</strong>
-              <span>Katra lapa tiek pielāgota konkrētam uzņēmumam, nevis uzlikta uz gatava šablona.</span>
+              <span>Katra lapa tiek pielāgota konkrētam uzņēmumam, nevis balstīta uz gatavu šablonu.</span>
             </li>
             <li>
               <strong>Skaidra struktūra</strong>
-              <span>Teksti, sadaļas un kontaktpunkti tiek sakārtoti tā, lai klients ātri saprot būtisko.</span>
+              <span>Saturs un sadaļas tiek veidotas tā, lai apmeklētājs ātri saprastu būtisko.</span>
             </li>
             <li>
               <strong>Praktisks rezultāts</strong>
-              <span>Mērķis nav tikai vizuāli skaista lapa, bet tāda, kas palīdz saņemt ziņas un pieprasījumus.</span>
+              <span>Mērķis nav tikai vizuāli skaista lapa, bet tāda, kas palīdz saņemt pieprasījumus.</span>
             </li>
           </ul>
         </div>
@@ -849,12 +864,12 @@
       <div class="section-grid">
         <div class="reveal">
           <p class="section-flag">Kāpēc izvēlēties</p>
-          <h2 class="section-title">Kāpēc izvēlēties lapu meistaru?</h2>
+          <h2 class="section-title">Kāpēc izvēlēties Lapumeistaru?</h2>
           <p class="section-copy">
-            Es neizmantoju gatavus šablonus un nestrādāju masveidā. Tas nozīmē, ka katram projektam tiek pievērsta reāla uzmanība - no struktūras līdz detaļām.
+            Es nestrādāju masveidā un neizmantoju gatavus šablonus. Katram projektam tiek pievērsta reāla uzmanība - no struktūras līdz detaļām.
           </p>
           <p class="section-copy">
-            Jūs komunicējat tieši ar mani, bez starpniekiem un neskaidriem procesiem.
+            Jūs komunicējat tieši ar mani - bez starpniekiem un neskaidriem procesiem.
           </p>
         </div>
 
@@ -863,28 +878,28 @@
             <span class="list-label">01</span>
             <h3 class="card-title">Nav šablonu</h3>
             <p class="card-body">
-              Es neveidoju lapas pēc viena un tā paša principa visiem. Katram uzņēmumam ir savs tonis, savs piedāvājums un savs veids, kā radīt uzticību.
+              Katram uzņēmumam ir savs tonis, piedāvājums un veids, kā radīt uzticību.
             </p>
           </article>
           <article class="info-card">
             <span class="list-label">02</span>
             <h3 class="card-title">Nav aģentūras procesa</h3>
             <p class="card-body">
-              Jums nav jāgaida starp vairākiem cilvēkiem un jāsaprot, kurš par ko atbild. Mēs runājam tieši, vienkārši un par lietu.
+              Nav jāgaida starp vairākiem cilvēkiem - komunikācija ir tieša un vienkārša.
             </p>
           </article>
           <article class="info-card">
             <span class="list-label">03</span>
-            <h3 class="card-title">Reāla uzmanība detaļām</h3>
+            <h3 class="card-title">Uzmanība detaļām</h3>
             <p class="card-body">
-              Sākot no virsrakstiem un sadaļu secības līdz tam, kā lapa jūtas telefonā, katrs elements tiek pārdomāts kā daļa no kopējā iespaida.
+              No virsrakstiem līdz mobilajai pieredzei - viss tiek pārdomāts kā vienots rezultāts.
             </p>
           </article>
           <article class="info-card">
             <span class="list-label">04</span>
-            <h3 class="card-title">Fokuss uz klienta skaidrību</h3>
+            <h3 class="card-title">Fokuss uz skaidrību</h3>
             <p class="card-body">
-              Lapa tiek būvēta tā, lai apmeklētājs ātri saprastu, ko jūs darāt, kāpēc jums uzticēties un kā ar jums sazināties.
+              Lapa tiek veidota tā, lai apmeklētājs ātri saprastu, ko jūs darāt un kā ar jums sazināties.
             </p>
           </article>
         </div>
@@ -897,25 +912,25 @@
           <p class="section-flag">Kam tas der</p>
           <h2 class="section-title">Kam šī būs optimāla izvēle?</h2>
           <p class="section-copy">
-            Šī pieeja vislabāk strādā maziem un vidējiem uzņēmumiem - frizieriem, servisiem, viesu namiem un citiem vietējiem pakalpojumiem.
+            Šī pieeja vislabāk strādā vietējiem uzņēmumiem - frizieriem, servisiem, viesu namiem un citiem vietējiem pakalpojumiem.
           </p>
           <p class="section-copy">
-            Ja jums ir sarežģīts tehnisks projekts vai liela sistēma, šis iespējams var nebūt pareizais risinājums.
+            Arī sarežģītākiem vai lielākiem projektiem bieži ir iespējams atrast piemērotu risinājumu. Uzrakstiet, un apskatīsim, kā to vislabāk realizēt.
           </p>
         </div>
 
         <div class="fit-box reveal delay-1">
-          <span class="list-label">Labs variants, ja jums vajag</span>
+          <span class="list-label">Labs variants, ja jums vajag:</span>
           <ul class="fit-list">
             <li>Skaidru pirmo iespaidu</li>
             <li>Viegli saprotamu piedāvājumu</li>
-            <li>Vienu skaidru kontaktpersonu</li>
-            <li>Lapu, kas labi izskatās telefonā</li>
-            <li>Profesionālāku uzņēmuma klātbūtni</li>
+            <li>Vienu kontaktpersonu</li>
+            <li>Labu mobilo pieredzi</li>
+            <li>Profesionālu klātbūtni</li>
             <li>Praktisku risinājumu bez jucekļa</li>
           </ul>
           <p class="fit-note">
-            Ja projekts prasa lielu sistēmu, sarežģītu iekšējo loģiku vai plašu tehnisku komandu, es to pateikšu godīgi jau sākumā. Mērķis ir atrast risinājumu, kas tiešām der jūsu situācijai.
+            Ja projekts prasa sarežģītu sistēmu vai plašu komandu, es to pateikšu godīgi jau sākumā.
           </p>
         </div>
       </div>
@@ -927,9 +942,9 @@
       <div class="contact-grid reveal">
         <div class="contact-panel">
           <p class="section-flag">Nākamais solis</p>
-          <h2 class="contact-title">Ja jums ir ideja vai projekts - uzrakstiet</h2>
+          <h2 class="contact-title">Ja jums ir ideja - uzrakstiet</h2>
           <p class="contact-copy">
-            Atsūtiet īsu ziņu par savu uzņēmumu un to, kas jums vajadzīgs. Es atbildēšu ar skaidru nākamo soli un ieteicamo pieeju.
+            Atsūtiet īsu ziņu par savu uzņēmumu un to, kas jums vajadzīgs. Es atbildēšu ar skaidru nākamo soli.
           </p>
 
           <div class="contact-meta">
@@ -941,14 +956,10 @@
               <strong>Tiešais kontakts</strong>
               <a href="mailto:sveiki@lapumeistars.lv">sveiki@lapumeistars.lv</a>
             </div>
-            <div class="contact-meta-item">
-              <strong>Formas mērķis</strong>
-              <span>Īsi saprast jūsu uzņēmumu, vajadzību un nākamo soli bez liekas sarakstes.</span>
-            </div>
           </div>
 
           <p class="contact-note">
-            Ja jums ērtāk, varat rakstīt arī tieši uz e-pastu. Forma vienkārši palīdz man saņemt visu svarīgāko vienuviet.
+            Forma palīdz ātri saprast jūsu vajadzību - bet varat rakstīt arī tieši uz e-pastu.
           </p>
         </div>
 
