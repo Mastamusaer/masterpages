@@ -246,8 +246,8 @@
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.82fr);
-      gap: 72px;
-      padding: 86px 0 72px;
+      gap: 56px;
+      padding: 64px 0 54px;
     }
 
     .hero-copy {
@@ -291,11 +291,11 @@
     }
 
     .hero-title {
-      font-size: clamp(48px, 6vw, 78px);
+      font-size: clamp(44px, 5.35vw, 68px);
       font-weight: 700;
-      line-height: 0.97;
-      margin-bottom: 26px;
-      max-width: 11ch;
+      line-height: 0.99;
+      margin-bottom: 20px;
+      max-width: 12ch;
       text-wrap: balance;
     }
 
@@ -313,13 +313,14 @@
     }
 
     .hero-body {
-      font-size: 18px;
+      font-size: 17px;
       max-width: 43rem;
-      margin-bottom: 34px;
+      margin-bottom: 22px;
     }
 
     .hero-body.hero-body-split {
-      margin-top: -14px;
+      margin-top: -8px;
+      margin-bottom: 22px;
     }
 
     .hero-actions {
@@ -327,7 +328,7 @@
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 26px;
+      margin-bottom: 22px;
     }
 
     .action-stack {
@@ -500,6 +501,17 @@
 
     .hero-preview-card {
       margin-top: 0;
+    }
+
+    .hero-preview-note {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 0 12px auto;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     .hero-preview-services {
@@ -1514,7 +1526,7 @@
       }
 
       .hero {
-        padding: 74px 0 60px;
+        padding: 60px 0 52px;
       }
 
       .hero-title {
@@ -2117,8 +2129,7 @@
           skaidri parādīt savu piedāvājumu un pārvērst apmeklētājus par klientu pieprasījumiem.
         </p>
         <p class="hero-body hero-body-split">
-          Nav aģentūras. Nav starpnieku. Nav lieka procesa. Strādāju tieši ar uzņēmumiem - tāpēc process ir ātrāks, lētāks un bez lieka trokšņa.
-          Mans mērķis: lai jūsu lapa strādā, ne tikai izskatās.
+          Strādāju tieši ar uzņēmumiem - bez aģentūras procesa, starpniekiem un liekas sarežģītības.
         </p>
         <div class="hero-actions">
           <div class="action-stack">
@@ -2151,6 +2162,7 @@
       </div>
 
       <aside class="hero-side reveal delay-1">
+        <p class="hero-preview-note">Dzīvs piemērs, nevis statisks attēls</p>
         <div class="hero-preview-card" style="width:100%;border:1px solid rgba(35,28,22,0.12);border-radius:10px;box-shadow:0 20px 48px rgba(9,18,31,0.16);background:#ffffff;overflow:hidden;">
           <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#f3f6fa;border-bottom:1px solid rgba(15,38,63,0.08);">
             <div style="width:9px;height:9px;border-radius:50%;background:#d3dae4;"></div>
@@ -3290,9 +3302,6 @@
   </script>
 </body>
 </html>
-
-
-
 
 
 
