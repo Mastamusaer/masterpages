@@ -2205,8 +2205,8 @@
           </div>
           <div class="example-deliverables" aria-label="Piegādājamais rezultāts">
             <div class="example-deliverable">
-              <span>Piegāde</span>
-              <strong>Izveidots 2 dienās</strong>
+              <span>Ātrs starts</span>
+              <strong>Mājaslapa gatava 2 dienās</strong>
             </div>
             <div class="example-deliverable">
               <span>Ierīces</span>
@@ -2259,8 +2259,8 @@
           </div>
           <div class="example-deliverables" aria-label="Piegādājamais rezultāts">
             <div class="example-deliverable">
-              <span>Piegāde</span>
-              <strong>Izveidots 3 dienās</strong>
+              <span>Ātrs starts</span>
+              <strong>Mājaslapa gatava 3 dienās</strong>
             </div>
             <div class="example-deliverable">
               <span>Ierīces</span>
@@ -2288,6 +2288,60 @@
               id="marta-preview-frame"
               src="marta-hair-studio.html"
               title="Marta's — Hair Studio piemēra mājaslapas priekšskats"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+<div class="example-layout reveal delay-2" id="taxi-example">
+        <div class="example-copy">
+          <span class="example-label">Piemēra projekts</span>
+          <h3 class="example-name">Jūsu logo taksometru serviss</h3>
+          <p class="example-desc">
+            Dinamisks taksometru uzņēmuma piemērs ar dzeltenu vizuālo sistēmu, brauciena rezervācijas plūsmu,
+            tarifu sadaļu un uzticamu premium kustības sajūtu. Šādu pieeju var pielāgot transporta, piegādes
+            vai citiem pakalpojumu uzņēmumiem, kur svarīga ātra saziņa un skaidrs nākamais solis.
+          </p>
+          <ul class="example-list">
+            <li>Izteikta nozares sajūta ar taksometru foto materiāliem</li>
+            <li>Rezervācijas forma, tarifi un pakalpojumu bloki</li>
+            <li>Premium kustība, ritms un spilgta dzeltena identitāte</li>
+          </ul>
+          <div class="example-actions">
+            <button type="button" class="btn-primary" data-open-taxi-example>Atvērt pilno piemēru</button>
+            <a href="index.html#contact" class="btn-secondary">Vēlos līdzīgu pieeju</a>
+          </div>
+          <div class="example-deliverables" aria-label="Piegādājamais rezultāts">
+            <div class="example-deliverable">
+              <span>Ātrs starts</span>
+              <strong>Izveidots 1 nedēļā</strong>
+            </div>
+            <div class="example-deliverable">
+              <span>Ierīces</span>
+              <strong>Mobilajām ierīcēm optimizēts</strong>
+            </div>
+            <div class="example-deliverable">
+              <span>Mērķis</span>
+              <strong>Piemērots rezervācijām / tarifiem</strong>
+            </div>
+          </div>
+          <p class="example-mobile-note">Ja vēlaties līdzīgu pieeju savam uzņēmumam, pielāgošu struktūru, tekstu un vizuālo toni tieši jūsu nozarei.</p>
+        </div>
+
+        <div class="example-browser">
+          <div class="example-browser-bar" aria-hidden="true">
+            <div class="example-browser-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="example-browser-url">Piemēra priekšskats</div>
+          </div>
+          <div class="example-browser-screen">
+            <iframe
+              id="taxi-preview-frame"
+              src="taxiso.html"
+              title="Jūsu logo taksometru servisa piemēra mājaslapas priekšskats"
               loading="lazy"
             ></iframe>
           </div>
@@ -2325,6 +2379,34 @@
     </div>
   </div>
 
+<div class="example-modal" id="taxi-full-example" hidden aria-hidden="true">
+    <div class="example-modal-panel" role="dialog" aria-modal="true" aria-labelledby="taxi-full-example-title">
+      <div class="example-modal-toolbar" aria-hidden="true">
+        <div class="example-browser-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="example-browser-url">Pilnais piemērs</div>
+        <button type="button" class="example-modal-close" data-close-taxi-example>Aizvērt</button>
+      </div>
+      <div class="example-modal-head">
+        <div class="example-modal-head-copy">
+          <span class="example-label">Pilnais piemērs</span>
+          <h3 class="example-name" id="taxi-full-example-title">Jūsu logo taksometru serviss</h3>
+        </div>
+        <p class="example-modal-note">Pilnais taksometru servisa piemērs ar rezervācijas formu, tarifiem, pakalpojumiem, autovadītāju sadaļu un dzeltenu nozares vizuālo toni.</p>
+      </div>
+      <div class="example-modal-screen">
+        <iframe
+          id="taxi-full-frame"
+          src="taxiso.html"
+          title="Jūsu logo taksometru servisa pilnais piemērs"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </div>
   <section class="mid-cta-section">
     <div class="section">
       <div class="mid-cta-grid reveal">
@@ -2375,6 +2457,9 @@
     const martaFullModal = document.getElementById('marta-full-example');
     const martaExampleTriggers = document.querySelectorAll('[data-open-marta-example]');
     const martaExampleClose = document.querySelector('[data-close-marta-example]');
+    const taxiFullModal = document.getElementById('taxi-full-example');
+    const taxiExampleTriggers = document.querySelectorAll('[data-open-taxi-example]');
+    const taxiExampleClose = document.querySelector('[data-close-taxi-example]');
     let activeModalTrigger = null;
 
     if (prefersReducedMotion || !('IntersectionObserver' in window)) {
@@ -2495,9 +2580,17 @@
       });
     });
 
+    taxiExampleTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        openModal(taxiFullModal, trigger, taxiExampleClose);
+      });
+    });
+
     mechanicExampleClose?.addEventListener('click', () => closeModal(mechanicFullModal));
     mobileExampleClose?.addEventListener('click', () => closeModal(mobileFullModal));
     martaExampleClose?.addEventListener('click', () => closeModal(martaFullModal));
+    taxiExampleClose?.addEventListener('click', () => closeModal(taxiFullModal));
 
     mechanicFullModal?.addEventListener('click', (event) => {
       if (event.target === mechanicFullModal) {
@@ -2514,6 +2607,12 @@
     martaFullModal?.addEventListener('click', (event) => {
       if (event.target === martaFullModal) {
         closeModal(martaFullModal);
+      }
+    });
+
+    taxiFullModal?.addEventListener('click', (event) => {
+      if (event.target === taxiFullModal) {
+        closeModal(taxiFullModal);
       }
     });
 
@@ -2534,6 +2633,11 @@
 
       if (martaFullModal && !martaFullModal.hidden) {
         closeModal(martaFullModal);
+        return;
+      }
+
+      if (taxiFullModal && !taxiFullModal.hidden) {
+        closeModal(taxiFullModal);
         return;
       }
 
