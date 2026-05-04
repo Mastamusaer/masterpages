@@ -602,26 +602,50 @@
     }
 
     .proof-note {
-      padding-top: 18px;
-      border-top: 1px solid rgba(35, 28, 22, 0.12);
       font-size: 14px;
       color: var(--muted);
       max-width: 50ch;
     }
 
-    .micro-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 18px;
-      list-style: none;
+    .fit-mini {
+      margin-top: 22px;
+      padding: 18px;
+      border: 1px solid rgba(41, 78, 70, 0.16);
+      background: rgba(230, 238, 235, 0.34);
     }
 
-    .micro-list li {
+    .fit-mini-title {
+      margin-bottom: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .fit-mini-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .fit-mini-list span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 12px;
+      border: 1px solid rgba(41, 78, 70, 0.18);
+      background: rgba(255, 253, 249, 0.74);
+      color: var(--accent-strong);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted-soft);
+      text-align: center;
+    }
+
+    .fit-mini-list span:last-child {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: min(100%, calc(50% - 5px));
     }
 
     .outcome-list {
@@ -717,6 +741,35 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--warm);
+    }
+
+    .services-guidance {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      margin-top: 18px;
+      padding: 24px 28px;
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 249, 0.82);
+      box-shadow: 0 14px 34px rgba(45, 35, 22, 0.06);
+    }
+
+    .services-guidance-title {
+      display: block;
+      margin-bottom: 6px;
+      font-family: "Newsreader", serif;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .services-guidance p {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 15px;
     }
 
     .examples-section {
@@ -1099,6 +1152,24 @@
       font-size: 15px;
     }
 
+    .steps-cta {
+      display: inline-flex;
+      margin-top: 30px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+      border-bottom: 1px solid rgba(41, 78, 70, 0.24);
+      transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .steps-cta:hover {
+      color: var(--accent);
+      border-color: currentColor;
+      transform: translateX(3px);
+    }
+
     .pricing-section {
       background: linear-gradient(180deg, #f8f4ed, #f1e9de);
       border-bottom: 1px solid var(--line);
@@ -1259,9 +1330,19 @@
       background: var(--surface);
     }
 
-    .faq-item-wide { grid-column: 1 / -1; }
-
-    .faq-item-wide .faq-body { max-width: 64ch; }
+    .why-highlight,
+    .faq-highlight {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 6px 9px;
+      border: 1px solid rgba(41, 78, 70, 0.18);
+      background: rgba(230, 238, 235, 0.5);
+      color: var(--accent-strong);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
     .why-title,
     .faq-title {
@@ -1308,12 +1389,31 @@
 
     .contact-meta {
       display: grid;
-      gap: 8px;
+      gap: 10px;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted-soft);
+    }
+
+    .contact-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 9px 12px;
+      border: 1px solid rgba(41, 78, 70, 0.16);
+      background: rgba(230, 238, 235, 0.45);
+      color: var(--accent-strong);
+    }
+
+    .contact-meta span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      background: var(--accent);
     }
 
     .contact-direct {
@@ -1567,6 +1667,11 @@
         grid-template-columns: 1fr;
       }
 
+      .services-guidance {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+
       .example-browser-screen,
       .example-browser-screen iframe {
         min-height: 560px;
@@ -1718,6 +1823,7 @@
       .mid-cta-panel .action-stack,
       .pricing-actions .action-stack,
       .hero-preview-actions > *,
+      .services-guidance .btn-primary,
       .contact-button {
         width: 100%;
       }
@@ -1730,6 +1836,7 @@
       .pricing-actions .action-stack > a,
       .hero-preview-actions > a,
       .hero-preview-actions > button,
+      .services-guidance .btn-primary,
       .contact-button {
         display: flex;
         align-items: center;
@@ -1820,10 +1927,6 @@
         grid-template-columns: 1fr;
       }
 
-      .micro-list {
-        grid-template-columns: 1fr;
-      }
-
       .section,
       .pricing-inner,
       .contact-inner {
@@ -1833,6 +1936,10 @@
       .section-header {
         margin-bottom: 28px;
         gap: 18px;
+      }
+
+      .fit-mini-list span:last-child {
+        width: 100%;
       }
 
       .proof-panel,
@@ -2292,15 +2399,18 @@
             mobilajām ierīcēm pielāgots dizains un aicinājumi rīkoties, kas palīdz apmeklētājam spert nākamo soli.
           </p>
           <p class="proof-note">
-            Strādāju tieši ar vietējiem uzņēmumiem, saprotu to vajadzības un fokusējos uz vienkāršiem, praktiskiem risinājumiem.
+            Strādāju tieši ar vietējiem uzņēmumiem un fokusējos uz vienkāršiem, praktiskiem risinājumiem.
           </p>
-          <ul class="micro-list">
-            <li>Piemērots amatniekiem</li>
-            <li>Piemērots saloniem</li>
-            <li>Piemērots kafejnīcām</li>
-            <li>Piemērots vietējiem veikaliem</li>
-            <li>Piemērots konsultantiem</li>
-          </ul>
+          <div class="fit-mini">
+            <p class="fit-mini-title">Piemērots uzņēmumiem:</p>
+            <div class="fit-mini-list" aria-label="Piemērots uzņēmumu veidiem">
+              <span>Amatniekiem</span>
+              <span>Saloniem</span>
+              <span>Kafejnīcām</span>
+              <span>Vietējiem veikaliem</span>
+              <span>Konsultantiem</span>
+            </div>
+          </div>
         </div>
 
         <div class="outcome-list">
@@ -2326,10 +2436,10 @@
       <div class="section-header reveal">
         <div>
           <p class="section-flag">Pakalpojumi</p>
-          <h2 class="section-title">Ko es varu izveidot jūsu uzņēmumam</h2>
+          <h2 class="section-title">Ko varu izveidot jūsu uzņēmumam</h2>
         </div>
         <p class="section-desc">
-          Izvēlieties risinājumu, kas šobrīd vislabāk atbilst jūsu uzņēmumam. Var sākt vienkārši un vēlāk paplašināt.
+          Izvēlieties sākumpunktu, kas šobrīd vislabāk atbilst jūsu uzņēmumam. Ja neesat pārliecināts, palīdzēšu izvēlēties.
         </p>
       </div>
 
@@ -2381,6 +2491,14 @@
           </div>
           <span class="service-price">€20-40 / mēnesī</span>
         </article>
+      </div>
+
+      <div class="services-guidance reveal delay-2">
+        <div>
+          <strong class="services-guidance-title">Nezināt, kurš risinājums jums atbilst?</strong>
+          <p>Īsi aprakstiet savu uzņēmumu, un es ieteikšu piemērotāko risinājumu bez liekas sarežģītības.</p>
+        </div>
+        <a href="#contact" class="btn-primary">Palīdzēt izvēlēties risinājumu</a>
       </div>
     </div>
   </section>
@@ -2485,9 +2603,9 @@
       <div class="mid-cta-grid reveal">
         <div class="mid-cta-copy">
           <p class="section-flag">Kam tas ir piemērots</p>
-          <h2 class="section-title">Labs risinājums uzņēmumiem, kuriem vajag uzticamu mājaslapu bez aģentūras jucekļa.</h2>
+          <h2 class="section-title">Labs risinājums uzņēmumiem, kuriem vajag uzticamu mājaslapu bez aģentūras sarežģītības.</h2>
           <p class="section-desc">
-            Vislabāk der, ja jums vajag skaidru pirmo iespaidu, saprotamu piedāvājumu un vienu vietu, kur klients var ērti pieteikties vai sazināties.
+            Vislabāk der, ja jums vajag skaidru pirmo iespaidu, saprotamu piedāvājumu un vienu vietu, kur klients var ātri saprast, uzticēties un sazināties.
           </p>
           <ul class="fit-list">
             <li class="fit-item">Vietējiem pakalpojumu sniedzējiem</li>
@@ -2495,6 +2613,7 @@
             <li class="fit-item">Kafejnīcām</li>
             <li class="fit-item">Amatniekiem</li>
             <li class="fit-item">Viesu mājām</li>
+            <li class="fit-item">Remonta servisiem</li>
           </ul>
         </div>
 
@@ -2503,6 +2622,7 @@
           <h3 class="mid-cta-title">Ja vēlaties līdzīgu rezultātu savam uzņēmumam — sāciet ar īsu ziņu.</h3>
           <p class="mid-cta-body">
             Aprakstiet, ar ko nodarbojaties un kas jums vajadzīgs, un es atbildēšu ar skaidru piedāvājumu, termiņu un ieteicamo pieeju.
+            Nav nepieciešams visu sagatavot uzreiz - pietiek ar īsu aprakstu par uzņēmumu.
           </p>
           <div class="action-stack">
             <a href="#contact" class="btn-primary">Sākt projektu</a>
@@ -2544,17 +2664,18 @@
           <span class="step-num">03</span>
           <h3 class="step-title">Pārskatīšana</h3>
           <p class="step-body">
-            Jūs apskatāt melnrakstu un nosūtāt vēlamos labojumus. Es pielāgoju lapu, lai tā tiešām atbilst jūsu uzņēmumam.
+            Jūs apskatāt pirmo versiju un nosūtāt vēlamos labojumus. Es pielāgoju lapu, lai tā tiešām atbilst jūsu uzņēmumam.
           </p>
         </article>
         <article class="step">
           <span class="step-num">04</span>
           <h3 class="step-title">Palaišana</h3>
           <p class="step-body">
-            Kad viss ir apstiprināts, mājaslapa tiek publicēta un jums ir profesionāla vieta internetā, ko droši varat rādīt klientiem.
+            Kad viss ir apstiprināts, mājaslapa tiek publicēta, un jums ir profesionāla vieta internetā, ko droši rādīt klientiem.
           </p>
         </article>
       </div>
+      <a href="#contact" class="steps-cta reveal delay-2">Gatavs sākt? Uzrakstiet par savu projektu →</a>
     </div>
   </section>
 
@@ -2645,34 +2766,38 @@
       <div class="section-header reveal">
         <div>
           <p class="section-flag">Kāpēc tas strādā</p>
-          <h2 class="section-title">Kas vietējiem uzņēmumiem parasti ir vajadzīgs visvairāk</h2>
+          <h2 class="section-title">Kas vietējai mājaslapai patiešām ir vajadzīgs</h2>
         </div>
         <p class="section-desc">
-          Nevis milzīga mājaslapa. Nevis uzkrītoši efekti. Bet tīra, pārliecinoša lapa, kas palīdz īstiem klientiem jums uzticēties un rīkoties.
+          Nevis milzīga mājaslapa. Nevis uzkrītoši efekti. Bet pārskatāma, pārliecinoša lapa, kas palīdz īstajiem klientiem jums uzticēties un rīkoties.
         </p>
       </div>
 
       <div class="why-grid reveal delay-1">
         <article class="why-card">
+          <span class="why-highlight">Ātra skaidrība</span>
           <h3 class="why-title">Skaidrs vēstījums</h3>
           <p class="why-body">
-            Apmeklētājam dažās sekundēs jāsaprot, ko jūs darāt. Es sakārtoju lapu tā, lai jūsu vērtība būtu acīmredzama uzreiz.
+            Apmeklētājam dažās sekundēs jāsaprot, ko jūs darāt. Es sakārtoju lapu tā, lai jūsu piedāvājums būtu acīmredzams uzreiz.
           </p>
         </article>
         <article class="why-card">
+          <span class="why-highlight">Mobilais skats</span>
           <h3 class="why-title">Pārdomāts mobilais izkārtojums</h3>
           <p class="why-body">
-            Lielākā daļa vietējo klientu skatīs jūsu uzņēmumu telefonā. Dizains tiek veidots tā, lai izskatītos labi un būtu ērts arī mazākos ekrānos.
+            Liela daļa vietējo klientu jūsu uzņēmumu skatīs telefonā. Dizains tiek veidots tā, lai lapa izskatītos labi un būtu ērta arī mazākos ekrānos.
           </p>
         </article>
         <article class="why-card">
+          <span class="why-highlight">Uzticība</span>
           <h3 class="why-title">Profesionāls pirmais iespaids</h3>
           <p class="why-body">
             Labāka mājaslapa palīdz izskatīties uzticamākam, stabilākam un nopietnākam savā jomā.
           </p>
         </article>
         <article class="why-card">
-          <h3 class="why-title">Praktiski, nevis pārbūvēti</h3>
+          <span class="why-highlight">Bez liekā</span>
+          <h3 class="why-title">Vajadzīgais, nevis liekais</h3>
           <p class="why-body">
             Es fokusējos uz to, kas palīdz jūsu uzņēmumam tieši tagad, nevis uzspiežu liekas funkcijas, kuras jums nav vajadzīgas.
           </p>
@@ -2686,42 +2811,54 @@
       <div class="section-header reveal">
         <div>
           <p class="section-flag">Biežākie jautājumi</p>
-          <h2 class="section-title">Daži jautājumi, ko klienti uzdod visbiežāk</h2>
+          <h2 class="section-title">Biežāk uzdotie jautājumi</h2>
         </div>
         <p class="section-desc">
-          Šie ir jautājumi, ko daudzi uzņēmumu īpašnieki uzdod pirms darba sākšanas.
+          Atbildes uz jautājumiem, kas parasti rodas pirms darba sākšanas.
         </p>
       </div>
 
       <div class="faq-grid reveal delay-1">
         <article class="faq-item">
+          <span class="faq-highlight">Teksti</span>
           <h3 class="faq-title">Vai man pašam jāsagatavo visi teksti?</h3>
           <p class="faq-body">
             Nē. Ja iedosiet pamatinformāciju par savu uzņēmumu, es varu palīdzēt to pārvērst skaidrā un pārliecinošā mājaslapas tekstā.
           </p>
         </article>
         <article class="faq-item">
+          <span class="faq-highlight">Esoša lapa</span>
           <h3 class="faq-title">Vai varat pārtaisīt manu esošo lapu?</h3>
           <p class="faq-body">
             Jā. Ja jūsu mājaslapa šķiet novecojusi, pārblīvēta vai vāja mobilajās ierīcēs, es varu to atjaunot un padarīt efektīvāku.
           </p>
         </article>
         <article class="faq-item">
+          <span class="faq-highlight">Mobilais skats</span>
           <h3 class="faq-title">Vai tā strādās telefonos?</h3>
           <p class="faq-body">
             Jā. Lapa ir veidota tā, lai labi darbotos datoros, planšetēs un mobilajos telefonos.
           </p>
         </article>
         <article class="faq-item">
+          <span class="faq-highlight">Sākums</span>
           <h3 class="faq-title">Cik ātri varam sākt?</h3>
           <p class="faq-body">
             Parasti uzreiz. Ja jums jau ir logo, bildes un pamatinformācija par uzņēmumu, projekts var virzīties ļoti ātri.
           </p>
         </article>
-        <article class="faq-item faq-item-wide">
+        <article class="faq-item">
+          <span class="faq-highlight">Domēns</span>
+          <h3 class="faq-title">Vai palīdzat ar domēnu un publicēšanu?</h3>
+          <p class="faq-body">
+            Jā. Varu palīdzēt izvēlēties domēnu, sakārtot pamata uzstādījumus un publicēt mājaslapu. Ja nepieciešams, paskaidrošu arī hostinga un e-pasta iespējas.
+          </p>
+        </article>
+        <article class="faq-item">
+          <span class="faq-highlight">Apmaksa</span>
           <h3 class="faq-title">Vai apmaksa jāveic iepriekš?</h3>
           <p class="faq-body">
-            Nē. Apmaksu lūdzu tikai pēc tam, kad dizains ir izveidots un esam vienojušies par visu līdz galam. Vispirms jūs apskatāt dizainu, apstiprināt, ka viss ir kārtībā, un tikai tad notiek apmaksa.
+            Nē. Apmaksu lūdzu tikai pēc dizaina apstiprinājuma. Vispirms jūs apskatāt izveidoto versiju, apstiprināt, ka viss ir kārtībā, un tikai tad notiek apmaksa.
           </p>
         </article>
       </div>
@@ -2732,7 +2869,7 @@
     <div class="contact-inner">
       <div class="contact-copy reveal">
         <p class="section-flag">Kontakti</p>
-        <h2 class="section-title">Izveidosim mājaslapu, kurai jūsu klienti uzticas.</h2>
+        <h2 class="section-title">Izveidosim mājaslapu, kurai klienti uzticas.</h2>
         <p class="section-desc">
           Atsūtiet īsu ziņu par savu uzņēmumu un to, kas jums nepieciešams. Es atbildēšu ar skaidru nākamo soli un konkrētu cenu piedāvājumu.
         </p>
@@ -2756,7 +2893,7 @@
           method="POST"
           accept-charset="UTF-8"
         >
-          <p class="form-helper">Aizpildiet formu, un saņemšu jūsu pieteikumu ar visu svarīgāko informāciju vienuviet.</p>
+          <p class="form-helper">Aizpildiet formu, un es saņemšu visu svarīgāko informāciju vienuviet.</p>
           <input type="hidden" name="_subject" value="Jauns pieprasījums no Lapumeistars" />
           <div class="form-field form-field-trap" aria-hidden="true">
             <label for="f-website">Mājaslapa</label>
@@ -2767,14 +2904,13 @@
             <input type="text" id="f-name" name="name" placeholder="Jānis Bērziņš" autocomplete="name" required />
           </div>
           <div class="form-field">
-            <label for="f-email">E-pasts</label>
+            <label for="f-contact">E-pasts vai tālrunis</label>
             <input
-              type="email"
-              id="f-email"
-              name="email"
-              placeholder="sveiki@uzņēmums.lv"
-              autocomplete="email"
-              inputmode="email"
+              type="text"
+              id="f-contact"
+              name="contact"
+              placeholder="sveiki@uznemums.lv vai +371..."
+              autocomplete="on"
               required
             />
           </div>
@@ -2800,6 +2936,7 @@
             ></textarea>
           </div>
           <button type="submit" class="contact-button">Nosūtīt pieteikumu</button>
+          <p class="cta-microcopy form-microcopy">Atbildēšu ar konkrētu nākamo soli, nevis automātisku atbildi.</p>
           <p class="cta-microcopy form-microcopy">Aizņem apmēram 1 minūti</p>
           <div class="form-msg" id="form-msg" aria-live="polite"></div>
         </form>
@@ -3302,8 +3439,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
